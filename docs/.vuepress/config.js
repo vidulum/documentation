@@ -17,7 +17,7 @@ module.exports = {
         text: "Vidulum Chain",
         items: [
           {
-            text: "Mainnet (vidulum-1)",
+            text: "Mainnet",
             link: "/getting-started/mainnet"
           },
           {
