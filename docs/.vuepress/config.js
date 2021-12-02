@@ -117,14 +117,14 @@ module.exports = {
         "mainnet",
         "mainnet_validator",
         "security-checklist.md",
-        "croeseid-testnet",
+        "testnet",
         "aws-1click",
         "azure-1click",
         "croeseid-testnet-nix",
         "local-devnet",
         "advanced-tmkms-integration",
         "token-migration",
-        "nft-guide"
+        //"nft-guide"
         // "notes-on-production-deployment",
 //        "notes-on-performance"
       ],
