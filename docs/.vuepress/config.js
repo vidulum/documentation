@@ -24,22 +24,6 @@ module.exports = {
             text: "Testnet",
             link: "/getting-started/testnet.md"
           },
-          {
-            text: "Token Migration",
-            link: "/getting-started/token-migration.md"
-          },
-          {
-              text: "Block Explorer",
-              link: "https://explorers.vidulum.app/vidulum"
-          },
-          {
-            text: "Mainnet - Original",
-            link: "/getting-started/mainnet_orig.md"
-          },
-          {
-            text: "Testnet - Original",
-            link: "/getting-started/testnet_orig.md"
-          }
         ]
       },
       {
@@ -123,20 +107,7 @@ module.exports = {
       "/getting-started/": [
         "",
         "mainnet",
-        "mainnet_validator",
-        "security-checklist.md",
-        "testnet",
-        "aws-1click",
-        "azure-1click",
-        "croeseid-testnet-nix",
-        "local-devnet",
-        "advanced-tmkms-integration",
-        "token-migration",
-        "mainnet_orig",
-        "testnet_orig",
-        //"nft-guide"
-        // "notes-on-production-deployment",
-//        "notes-on-performance"
+        "testnet"
       ],
       "/chain-details/": [
         "introduction",
