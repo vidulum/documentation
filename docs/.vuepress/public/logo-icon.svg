@@ -1,25 +1,5 @@
-<svg width="71" height="82" viewBox="0 0 71 82" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g clip-path="url(#clip0)">
-        <path d="M35.4 0L0 20.4V61.2L35.4 81.6L70.8 61.2V20.4L35.4 0ZM60.2 55.2L35.4 69.6L10.5 55.2V26.5L35.4 12.1L60.3 26.5V55.2H60.2Z" fill="#002D74" />
-        <g style="mix-blend-mode:multiply">
-            <path d="M35.4 12.1V0L0 20.4V61.2L35.4 81.6V69.6L10.5 55.2V26.5L35.4 12.1Z" fill="url(#paint0_linear)" />
-        </g>
-        <g style="mix-blend-mode:multiply">
-            <path d="M35.4004 69.6V81.7L70.8004 61.3V20.4L35.4004 0V12.1L60.3004 26.5V55.2L35.4004 69.6Z" fill="url(#paint1_linear)" />
-        </g>
-        <path d="M51.9008 50.4001L35.4008 59.9001L18.8008 50.4001V31.3L35.4008 21.8L51.9008 31.3V50.4001Z" fill="#002D74" />
-    </g>
-    <defs>
-        <linearGradient id="paint0_linear" x1="17.6798" y1="81.6699" x2="17.6798" y2="0" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#002D74" stop-opacity="0" />
-            <stop offset="1" stop-color="#002D74" />
-        </linearGradient>
-        <linearGradient id="paint1_linear" x1="53.0397" y1="81.6699" x2="53.0397" y2="0" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#002D74" />
-            <stop offset="1" stop-color="#002D74" stop-opacity="0" />
-        </linearGradient>
-        <clipPath id="clip0">
-            <rect width="70.7" height="81.7" fill="white" />
-        </clipPath>
-    </defs>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 229 205" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <path id="Path-0" serif:id="Path 0" d="M149,12C213.11,12 217,12.1 216.97,13.75C216.95,14.71 212.73,23.15 198.22,49.5L99.78,49.5L90.42,32.5C85.27,23.15 81.05,14.71 81.03,13.75C81,12.1 84.89,12 149,12ZM52.26,13.5L76.2,54C89.36,76.28 100.36,94.95 100.65,95.5C100.93,96.05 96.97,104.1 91.83,113.38C86.7,122.67 82.28,130.41 82,130.6C81.72,130.79 80.76,130.39 79.86,129.72C78.95,129.05 63.32,103.19 45.11,72.25C26.9,41.31 12.01,15.32 12.02,14.48C12.04,13.16 14.71,12.99 52.26,13.5ZM183,73L182.7,75.25C182.53,76.49 168.28,102.47 151.04,133C133.8,163.53 118.97,189.3 118.09,190.28C117.22,191.26 116.05,192.04 115.5,192.01C114.95,191.98 110.34,184.65 105.26,175.73C100.17,166.8 96.01,158.94 96.01,158.25C96,157.56 106.39,138.66 119.09,116.25C131.79,93.84 142.92,74.94 143.82,74.25C144.99,73.35 150.74,73 183,73Z" style="fill:rgb(48,84,188);fill-rule:nonzero;"/>
 </svg>
