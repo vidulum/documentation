@@ -31,6 +31,14 @@ module.exports = {
           {
               text: "Block Explorer",
               link: "https://explorers.vidulum.app/vidulum"
+          },
+          {
+            text: "Mainnet - Original",
+            link: "/getting-started/mainnet_orig.md"
+          },
+          {
+            text: "Testnet - Original",
+            link: "/getting-started/testnet_orig.md"
           }
         ]
       },
@@ -124,6 +132,8 @@ module.exports = {
         "local-devnet",
         "advanced-tmkms-integration",
         "token-migration",
+        "mainnet_orig",
+        "testnet_orig",
         //"nft-guide"
         // "notes-on-production-deployment",
 //        "notes-on-performance"
@@ -175,7 +185,7 @@ module.exports = {
           var ordering = {
             Home: 0,
             "Getting Started": 1,
-            "Croeseid Testnet": 2,
+            "Testnet": 2,
             "Devnet": 3,
             "Send Your First Transaction": 4,
             Consensus: 5,
