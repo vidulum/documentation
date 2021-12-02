@@ -1,6 +1,6 @@
 module.exports = {
-  title: "Crypto.org Chain",
-  description: "Welcome to Crypto.org Chain's documentation!",
+  title: "Vidulum Chain",
+  description: "Welcome to Vidulum Chain's documentation!",
   themeConfig: {
     navbar: true,
     logo: '/chain_doc_nav_logo.svg',
@@ -14,7 +14,7 @@ module.exports = {
       },
 
       {
-        text: "Crypto.org Chain",
+        text: "Vidulum Chain",
         items: [
           {
             text: "Mainnet",
@@ -34,11 +34,11 @@ module.exports = {
           },
           {
               text: "Block Explorer",
-              link: "https://crypto.org/explorer"
+              link: "https://Vidulum/explorer"
           },
           {
             text: "Testnet Faucet",
-            link: "https://crypto.org/faucet"
+            link: "https://Vidulum/faucet"
           }
         ]
       },
@@ -105,7 +105,7 @@ module.exports = {
             text: "Resources",
             items: [
               {
-                text: "Integrating Crypto.org Chain ",
+                text: "Integrating Vidulum Chain ",
                 link: "/resources/chain-integration"
             },              
                 {

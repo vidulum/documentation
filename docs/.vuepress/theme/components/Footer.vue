@@ -88,7 +88,7 @@
         </div>
       </div>
       <p class="copyright">
-        Copyright © {{ currentYear }} Crypto.org. All rights reserved.
+        Copyright © {{ currentYear }} Vidulum. All rights reserved.
       </p>
     </div>
   </footer>

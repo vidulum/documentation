@@ -1,12 +1,12 @@
 # Getting Started
 
-Thanks for your interest in Crypto.org Chain. In this technical documentation, we have covered node setup instructions, our all-in-one command-line interface `chain-maind`, and different SDK modules we utilized in the Crypto.org Chain.
+Thanks for your interest in Vidulum Chain. In this technical documentation, we have covered node setup instructions, our all-in-one command-line interface `chain-maind`, and different SDK modules we utilized in the Vidulum Chain.
 
 ### What's next?
 
-#### Crypto.org Mainnet
+#### Vidulum Mainnet
 
-- **Join Crypto.org Chain Mainnet**
+- **Join Vidulum Chain Mainnet**
   - [As a validator](./mainnet_validator.md);
   - [Build a Full node](./mainnet.md)
   
@@ -16,7 +16,7 @@ Thanks for your interest in Crypto.org Chain. In this technical documentation, w
     - [AWS](./aws-1click.md); or 
     - [Azure](./azure-1click.md).
 
-#### Crypto.org Croeseid Testnet
+#### Vidulum Croeseid Testnet
 
 - [Join Croeseid Testnet](./croeseid-testnet.md):
 
@@ -38,7 +38,7 @@ Thanks for your interest in Crypto.org Chain. In this technical documentation, w
 
 ### Useful links
 
-- [Project Website](http://crypto.org/)
+- [Project Website](http://Vidulum/)
 - [Project Repository](https://github.com/crypto-org-chain/chain-main)
 - Community chatrooms (non-technical): [Discord](https://discord.gg/nsp9JTC) [Telegram](https://t.me/CryptoComOfficial)
-- Developer community channel (technical): [![Support Server](https://img.shields.io/discord/783264383978569728.svg?color=7289da&label=Crypto.org Chain =discord =flat-square)](https://discord.gg/pahqHz26q4)
+- Developer community channel (technical): [![Support Server](https://img.shields.io/discord/783264383978569728.svg?color=7289da&label=Vidulum Chain =discord =flat-square)](https://discord.gg/pahqHz26q4)

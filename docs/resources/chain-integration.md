@@ -1,10 +1,10 @@
-# Crypto.org Chain Integration documentation
+# Vidulum Chain Integration documentation
 
 ## Useful Links
 
-- [Crypto.org Chain website](https://crypto.org/)
+- [Vidulum Chain website](https://Vidulum/)
 - [GitHub Repository](https://github.com/crypto-org-chain/chain-main)
-- [Official Documentation](https://crypto.org/docs/)
+- [Official Documentation](https://Vidulum/docs/)
 
 ## Node and RPC setup notes
 
@@ -13,18 +13,18 @@
 ## Setup Guide
 
 - **Mainnet**:
-    - [Running a full node;](https://crypto.org/docs/getting-started/mainnet.html)
-    - [Running a validator;](https://crypto.org/docs/getting-started/mainnet_validator.html)
-    - [Mainnet Validator Security Checklist.](https://crypto.org/docs/getting-started/security-checklist.html#part-1-conduct-survey-on-general-controls-of-hosting-data-centre)    
+    - [Running a full node;](https://Vidulum/docs/getting-started/mainnet.html)
+    - [Running a validator;](https://Vidulum/docs/getting-started/mainnet_validator.html)
+    - [Mainnet Validator Security Checklist.](https://Vidulum/docs/getting-started/security-checklist.html#part-1-conduct-survey-on-general-controls-of-hosting-data-centre)    
 - **Testnet**: 
-    - [Joining the Croeseid Testnet](https://crypto.org/docs/getting-started/croeseid-testnet.html)
-    - [Deploy testnet node with nix](https://crypto.org/docs/getting-started/croeseid-testnet-nix.html#pre-requisites)
+    - [Joining the Croeseid Testnet](https://Vidulum/docs/getting-started/croeseid-testnet.html)
+    - [Deploy testnet node with nix](https://Vidulum/docs/getting-started/croeseid-testnet-nix.html#pre-requisites)
 - **Devnet**
-    - [Running latest development network locally](https://crypto.org/docs/getting-started/local-devnet.html#overview)
+    - [Running latest development network locally](https://Vidulum/docs/getting-started/local-devnet.html#overview)
 
 ## API Documentation
 
-There are a few ways to access to the Crypto.org Chain
+There are a few ways to access to the Vidulum Chain
 
 1. **Tendermint RPC**
   - Raw but most-completed data
@@ -57,23 +57,23 @@ The Ansible playbook for deploying Prometheus and some rules we are using are un
 
 ### Mainnet - `crypto-org-chain-mainnet-1`
 
-- [Tendermint](https://mainnet.crypto.org:26657/)
-- [Cosmos RESTful gRPC](https://mainnet.crypto.org:1317/)
+- [Tendermint](https://mainnet.Vidulum:26657/)
+- [Cosmos RESTful gRPC](https://mainnet.Vidulum:1317/)
 
 ### Croeseid Testnet - `testnet-croeseid-4`
 
-- [Tendermint](https://testnet-croeseid-4.crypto.org:26657/)
-- [Cosmos RESTful gRPC](https://testnet-croeseid-4.crypto.org:1317/)
+- [Tendermint](https://testnet-croeseid-4.Vidulum:26657/)
+- [Cosmos RESTful gRPC](https://testnet-croeseid-4.Vidulum:1317/)
 
 ## Block Explorer
 
 ### Mainnet
 
-[https://crypto.org/explorer](https://crypto.org/explorer)
+[https://Vidulum/explorer](https://Vidulum/explorer)
 
 ### Croeseid Testnet
 
-[https://crypto.org/explorer/croeseid4/](https://crypto.org/explorer/croeseid4/)
+[https://Vidulum/explorer/croeseid4/](https://Vidulum/explorer/croeseid4/)
 
 ## Community
 
