@@ -1,6 +1,6 @@
 <br />
 <p align="center">
-  <img src="https://raw.githubusercontent.com/crypto-com/chain-docs/master/docs/.vuepress/public/chain_doc_nav_logo.svg" alt="Vidulum Chain" width="400">
+  <img src="https://github.com/qf3l3k/documentation/blob/master/docs/.vuepress/public/chain_doc_nav_logo.svg" alt="Vidulum Chain" width="400">
 </p>
 <br />
 
