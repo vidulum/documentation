@@ -18,15 +18,15 @@ module.exports = {
         items: [
           {
             text: "Mainnet",
-            link: "/getting-started/mainnet"
+            link: "/getting-started/mainnet.md"
           },
           {
-            text: "Testnet (testvidulum-1)",
-            link: "/getting-started/testnet"
+            text: "Testnet",
+            link: "/getting-started/testnet.md"
           },
           {
             text: "Token Migration",
-            link: "/getting-started/token-migration"
+            link: "/getting-started/token-migration.md"
           },
           {
               text: "Block Explorer",
