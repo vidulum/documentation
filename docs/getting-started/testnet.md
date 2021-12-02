@@ -1,6 +1,6 @@
-# Croeseid Testnet: Running Nodes
+# Testnet: Running Nodes
 
-The latest Vidulum Chain Testnet has been named as **Croeseid**.
+The latest Vidulum Chain Testnet has been named as **testvidulum-1**.
 
 This is a detailed documentation for setting up a Validator or a full node on Vidulum Croeseid testnet `testnet-croeseid-4`.
 

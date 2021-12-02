@@ -17,28 +17,20 @@ module.exports = {
         text: "Vidulum Chain",
         items: [
           {
-            text: "Mainnet",
+            text: "Mainnet (vidulum-1)",
             link: "/getting-started/mainnet"
           },
           {
-            text: "Croeseid Testnet",
-            link: "/getting-started/croeseid-testnet"
+            text: "Testnet (testvidulum-1)",
+            link: "/getting-started/testnet"
           },
           {
             text: "Token Migration",
             link: "/getting-started/token-migration"
           },
           {
-            text: "NFT",
-            link: "/getting-started/nft-guide"
-          },
-          {
               text: "Block Explorer",
-              link: "https://Vidulum/explorer"
-          },
-          {
-            text: "Testnet Faucet",
-            link: "https://Vidulum/faucet"
+              link: "https://explorers.vidulum.app/vidulum"
           }
         ]
       },
