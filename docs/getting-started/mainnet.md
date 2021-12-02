@@ -21,7 +21,7 @@
 <!-- /MarkdownTOC -->
 
 
-# SECTION 0: Requirements
+## SECTION 0: Requirements
  - Ubuntu 20.04 LTS
 
 
@@ -36,14 +36,14 @@
  - 200GB SSD
 
 
-# SECTION 1: System preparation
+## SECTION 1: System preparation
 **NOTE:** ALL TASKS IN **SECTION 1** HAVE TO BE PERFORMED AS **root**
 
-## Add dedicated user
+### Add dedicated user
 
-## Go deployment
+### Go deployment
 
-### Download and extract repository
+#### Download and extract repository
 ```bash
 GOVER=$(curl https://go.dev/VERSION?m=text)
 wget https://golang.org/dl/${GOVER}.linux-amd64.tar.gz
@@ -52,7 +52,7 @@ sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf ${GOVER}.linux-amd64.ta
 **NOTE**: That will install latest version of Go
 
 
-## Firewall Configuration
+### Firewall Configuration
 ```bash
 ufw limit ssh/tcp comment 'Rate limit for openssh server' 
 ufw default deny incoming
@@ -62,7 +62,7 @@ ufw enable
 ```
 
 
-## systemd Service Configuration
+### systemd Service Configuration
 Create service file ***/lib/systemd/system/vidulum.service*** for **Vidulum Validator** with following content:
 ```bash
 [Unit]
@@ -88,11 +88,11 @@ systemctl daemon-reload && systemctl enable vidulum.service
 ```
 
 
-# SECTION 2: Build and Initiate Vidulum Node
+## SECTION 2: Build and Initiate Vidulum Node
 **NOTE:** ALL TASKS IN **SECTION 2** HAVE TO BE PERFORMED AS **vidulum** USER CREATED IN FIRST PART OF THIS GUIDE
 
 
-## Add Go environmental variables
+### Add Go environmental variables
 Set of variables, which should be set for user(s) with need to build Go apps.
 
 Add Golang specific variables to ```${HOME}/.profile``` 
@@ -112,7 +112,7 @@ Once modified and saved, reload ```${HOME}/.profile``` to set variables in curre
 ```
 
 
-## Build Vidulum binaries
+### Build Vidulum binaries
 
 Before we build binaries for Vidulum node/validator we create folder where binaries will be stored.
 Ubuntu adds this folder to search path, when it exists, so we can easily run binaries in future when needed.
@@ -128,7 +128,7 @@ git clone https://github.com/vidulum/mainnet && cd mainnet && make install
 mv ${HOME}/go/bin/vidulumd ${HOME}/.local/bin
 ```
 
-## Vidulum Node Init
+### Vidulum Node Init
 ```bash
 vidulumd init NODE_NAME --chain-id vidulum-1
 ```
@@ -145,7 +145,7 @@ wget https://raw.githubusercontent.com/vidulum/mainnet/main/genesis.json -o ${HO
 ```
 
 
-## Start node
+### Start node
 Once node is configured you can start it and synchronize chain database.
 ```bash
 sudo systemctl start vidulum.service
@@ -183,13 +183,13 @@ You will see JSON output where you need to locate ***catching_up*** field. When 
 
 
 
-# SECTION 3: Promote Full Node to Validator Role
+## SECTION 3: Promote Full Node to Validator Role
 **NOTE:** ALL TASKS IN **SECTION 3** HAVE TO BE PERFORMED AS **vidulum** USER CREATED IN FIRST PART OF THIS GUIDE
 
 In order to create validator you need to have Vidulum account and some funds, whcih can be delegated to validator.
 
 
-## Create Wallet
+### Create Wallet
 In order to create Vidulum wallet we use binaries we compiled earlier.
 ```bash
 vidulumd keys add WALLET_NAME --keyring-backend os
@@ -229,7 +229,7 @@ pagination:
 ```
 **NOTE:** Denomiation presented by command is in uvdl. For your information 1vdl = 1000000uvdl.
 
-## Create Validator
+### Create Validator
 Now we can turn full node into validator using account and funds created in previous steps.
 
 ```bash
