@@ -1,44 +1,25 @@
 # Getting Started
 
-Thanks for your interest in Vidulum Chain. In this technical documentation, we have covered node setup instructions, our all-in-one command-line interface `chain-maind`, and different SDK modules we utilized in the Vidulum Chain.
+This technical documentation for Vidulum will provide you detailed information about chain setup, node and validator setup, command line interface to navigate node and/or validator as well as other services included in Vidulum eco-system.
 
-### What's next?
+### What's in the menu?
 
 #### Vidulum Mainnet
 
-- **Join Vidulum Chain Mainnet**
-  - [As a validator](./mainnet_validator.md);
-  - [Build a Full node](./mainnet.md)
-  
-- Deploy mainnet node with [1 click](./aws-1click.md):
+- **Become part of Vidulum Chain Mainnet**
+  - [Deploy a Full node](./mainnet.md)
+  - [Become validator](./mainnet_validator.md#section-3-promote-full-node-to-validator-role);
 
-    Try running Full Nodes or Validators connected to our mainnet on 
-    - [AWS](./aws-1click.md); or 
-    - [Azure](./azure-1click.md).
 
-#### Vidulum Croeseid Testnet
+#### Vidulum Testnet
 
-- [Join Croeseid Testnet](./croeseid-testnet.md):
+- **Become part of Vidulum Chain Testnet**
+  - [Deploy a Full node](./testnet.md)
+  - [Become validator](./testnet_validator.md#section-3-promote-full-node-to-validator-role);
 
-    Try running Full Nodes or Validators connected to our Croeseid Testnet.
-
-- Deploy testnet node with [1 click](./aws-1click.md):
-
-    Try running Full Nodes or Validators connected to our Croeseid Testnet on 
-    - [AWS](./aws-1click.md); or 
-    - [Azure](./azure-1click.md).
-
-- [Deploy testnet node with nix](./croeseid-testnet-nix.md): 
-
-    Install and run full nodes or validators connected to our Croeseid Testnet with nix.
-
-#### Devnet
-
-- **Devnet** - [Build latest development version](./local-devnet.md): Try running latest development network (Devnet)
 
 ### Useful links
 
-- [Project Website](http://Vidulum/)
-- [Project Repository](https://github.com/crypto-org-chain/chain-main)
-- Community chatrooms (non-technical): [Discord](https://discord.gg/nsp9JTC) [Telegram](https://t.me/CryptoComOfficial)
-- Developer community channel (technical): [![Support Server](https://img.shields.io/discord/783264383978569728.svg?color=7289da&label=Vidulum Chain =discord =flat-square)](https://discord.gg/pahqHz26q4)
+- [Project Website](http://vidulum.app/)
+- [Project Repository](https://github.com/vidulum)
+- Community chatrooms (non-technical): [Discord](https://discord.gg/hne7Ccq)

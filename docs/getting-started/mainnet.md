@@ -187,7 +187,7 @@ You will see JSON output where you need to locate ***catching_up*** field. When 
 
 
 ## SECTION 3: Promote Full Node to Validator Role
-**NOTE:** ALL TASKS IN **SECTION 3** HAVE TO BE PERFORMED AS **vidulum** USER CREATED IN FIRST PART OF THIS GUIDE
+**NOTE:** ALL TASKS IN **SECTION 3** HAVE TO BE PERFORMED AS **vidulum** USER CREATED IN FIRST PART OF THIS GUIDE. THOSE STEPS ARE ONLY FOR VALIDATORS.
 
 In order to create validator you need to have Vidulum account and some funds, whcih can be delegated to validator.
 
@@ -216,7 +216,7 @@ some words forming mnemonic seed will be placed here you have to write them down
 **NOTE: _When you generate wallet in last line you will have line full of random words. This is mnemonic seed (allows to restore wallet). Write that down and keep safe_**
 
 
-Now you can transfer some funds to your wallet. To check balance on your account:
+Now you have to transfer some funds to your wallet. To check balance on your account:
 ```bash
 vidulumd query bank balances vdl1hjhglrzggqtdhsh3ag8jp0cckmva5pe976jxel
 ```
@@ -257,6 +257,4 @@ vidulumd tx staking create-validator \
 **NOTE: _When you generate wallet in last line you will have line full of random words. This is mnemonic seed (allows to restore wallet). Write that down and keep safe_**
 
 
-Once that is done you shoudl see your node listed here: https://explorers.vidulum.app/vidulum/staking
-
-JOIN VIDULUM DISCORD WHERE YOU CAN CHAT WITH COMMUNITY AND OTHER VALIDATORS https://discord.gg/hne7Ccq
+Once that is done you should see your node listed here: https://explorers.vidulum.app/vidulum/staking
