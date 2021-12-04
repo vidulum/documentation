@@ -22,4 +22,6 @@ This technical documentation for Vidulum will provide you detailed information a
 
 - [Project Website](http://vidulum.app/)
 - [Project Repository](https://github.com/vidulum)
+- [Chain Explorers](https://explorers.vidulum.app/)
+- [Vidulum Testnet Faucet](https://vidulum.app/testnet-faucet) 
 - Community chatrooms (non-technical): [Discord](https://discord.gg/hne7Ccq)

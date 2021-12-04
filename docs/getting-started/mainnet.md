@@ -37,8 +37,8 @@
 
 
 ## SECTION 1: System preparation
-::: tip Remarks:
-**ALL TASKS IN **SECTION 1** HAVE TO BE PERFORMED AS **root**
+::: tip NOTE:
+All tasks in **SECTION 1** have to be performed as **root**
 :::
 
 
@@ -95,7 +95,9 @@ systemctl daemon-reload && systemctl enable vidulum.service
 
 
 ## SECTION 2: Build and Initiate Vidulum Node
-**NOTE:** ALL TASKS IN **SECTION 2** HAVE TO BE PERFORMED AS **vidulum** USER CREATED IN FIRST PART OF THIS GUIDE
+::: tip NOTE:
+All tasks in **SECTION 2** have to be performed as **vidulum** user created in **SECTION 1**
+:::
 
 
 ### Add Go environmental variables
@@ -138,7 +140,10 @@ mv ${HOME}/go/bin/vidulumd ${HOME}/.local/bin
 ```bash
 vidulumd init NODE_NAME --chain-id vidulum-1
 ```
-**NOTE:** Replace NODE_NAME with name you want to assign to your validator.
+
+::: tip NOTE:
+Replace NODE_NAME with name you want to assign to your validator.
+:::
 
 In ***${HOME}/.vidulum/config/config.toml*** fine line which starts with ***persistent_peers =*** and replace with following content
 ```bash
@@ -190,7 +195,10 @@ You will see JSON output where you need to locate ***catching_up*** field. When 
 
 
 ## SECTION 3: Promote Full Node to Validator Role
-**NOTE:** ALL TASKS IN **SECTION 3** HAVE TO BE PERFORMED AS **vidulum** USER CREATED IN FIRST PART OF THIS GUIDE. THOSE STEPS ARE ONLY FOR VALIDATORS.
+::: tip NOTE:
+All tasks in **SECTION 3** have to be performed as **vidulum** user created in **SECTION 1**.
+Steps in this section will allow to promote full node to validator role. If you need full node only, skip this section.
+:::
 
 In order to create validator you need to have Vidulum account and some funds, whcih can be delegated to validator.
 
@@ -216,8 +224,10 @@ It is the only way to recover your account if you ever forget your password.
 
 some words forming mnemonic seed will be placed here you have to write them down and keep them safe
 ```
-**NOTE: _When you generate wallet in last line you will have line full of random words. This is mnemonic seed (allows to restore wallet). Write that down and keep safe_**
 
+::: tip NOTE:
+When you generate wallet in last line you will have line full of random words. This is mnemonic seed (allows to restore wallet). Write that down and keep safe. Using mnemonic you will be able to restore your account on another machine and access your funds. Lost of mnemonic might drive to inability to access your funds stored on Vidulum chain.
+:::
 
 Now you have to transfer some funds to your wallet. To check balance on your account:
 ```bash
@@ -233,7 +243,10 @@ pagination:
   next_key: null
   total: "0"
 ```
-**NOTE:** Denomiation presented by command is in uvdl. For your information 1vdl = 1000000uvdl.
+
+::: tip NOTE:
+Denomiation presented by command is in uvdl. For your information 1vdl = 1000000uvdl.
+:::
 
 ### Create Validator
 Now we can turn full node into validator using account and funds created in previous steps.
@@ -257,7 +270,5 @@ vidulumd tx staking create-validator \
     --from=WALLET_NAME \
     --keyring-backend os
 ```
-**NOTE: _When you generate wallet in last line you will have line full of random words. This is mnemonic seed (allows to restore wallet). Write that down and keep safe_**
-
 
 Once that is done you should see your node listed here: https://explorers.vidulum.app/vidulum/staking
