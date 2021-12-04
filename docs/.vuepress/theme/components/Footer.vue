@@ -56,34 +56,18 @@
           </div>
         </div>
         <div class="socials">
-          <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/cryptocom">
+          <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/VidulumApp">
             <img :src="$withBase('/social/twitter.svg')" alt="twitter" />
           </a>
-          <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/CryptoComOfficial">
-            <img :src="$withBase('/social/facebook.svg')" alt="facebook" />
-          </a>
-          <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/cryptocomofficial/">
-            <img :src="$withBase('/social/instagram.svg')" alt="instagram" />
-          </a>
-          <a target="_blank" rel="noopener noreferrer" href="https://hk.linkedin.com/company/cryptocom">
-            <img :src="$withBase('/social/linkedin.svg')" alt="linkedin" />
-          </a>
           <a target="_blank" rel="noopener noreferrer"
-            href="https://www.youtube.com/channel/UCOMprzxakZOqmY23LYIawmg"
-          >
+            href="https://www.youtube.com/channel/UCNd92ZViZweu6zz5ydt_wrQ">
             <img :src="$withBase('/social/youtube.svg')" alt="youtube" />
           </a>
-          <a target="_blank" rel="noopener noreferrer" href="https://www.reddit.com/r/Crypto_com/">
+          <a target="_blank" rel="noopener noreferrer" href="https://www.reddit.com/r/VidulumOfficial/">
             <img :src="$withBase('/social/reddit.svg')" alt="reddit" />
           </a>
-          <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/pahqHz26q4">
+          <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/hne7Ccq">
             <img :src="$withBase('/social/discord.svg')" alt="discord" />
-          </a>
-          <a target="_blank" rel="noopener noreferrer" href="https://t.me/CryptoComOfficial">
-            <img :src="$withBase('/social/telegram.svg')" alt="telegram" />
-          </a>
-          <a target="_blank" rel="noopener noreferrer" href="https://open.kakao.com/o/gGH1WQM">
-            <img :src="$withBase('/social/kakaotalk.svg')" alt="kakaotalk" />
           </a>
         </div>
       </div>

@@ -1,4 +1,4 @@
-# Vidulum Validator Installation Guide
+# Mainnet Full Node & Validator
 
 <!-- MarkdownTOC autolink="true" -->
 
@@ -255,7 +255,5 @@ vidulumd tx staking create-validator \
 
 
 Once that is done you shoudl see your node listed here: https://explorers.vidulum.app/vidulum/staking
-
-ENJOY! YOU JUST BECAME VIDULUM CHAIN VALIDATOR!
 
 JOIN VIDULUM DISCORD WHERE YOU CAN CHAT WITH COMMUNITY AND OTHER VALIDATORS https://discord.gg/hne7Ccq
