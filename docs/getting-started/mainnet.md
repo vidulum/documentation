@@ -40,6 +40,9 @@
 **NOTE:** ALL TASKS IN **SECTION 1** HAVE TO BE PERFORMED AS **root**
 
 ### Add dedicated user
+```bash
+sudo adduser vidulum
+```
 
 ### Go deployment
 
