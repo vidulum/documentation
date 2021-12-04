@@ -17,6 +17,10 @@ module.exports = {
         text: "Vidulum Chain",
         items: [
           {
+            text: "Prerequisites",
+            link: "/getting-started/prerequisites.md"
+          },
+          {
             text: "Mainnet",
             link: "/getting-started/mainnet.md"
           },
@@ -106,6 +110,7 @@ module.exports = {
     sidebar: {
       "/getting-started/": [
         "",
+        "prerequisites",
         "mainnet",
         "testnet"
       ],

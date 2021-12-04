@@ -234,8 +234,8 @@ Now we can turn full node into validator using account and funds created in prev
 
 ```bash
 vidulumd tx staking create-validator \
-    --commission-max-change-rate="0.1" \
-    --commission-max-rate="0.8" \
+    --commission-max-change-rate="0.05" \
+    --commission-max-rate="0.3" \
     --commission-rate="0.1" \
     --amount="1000000uvdl" \
     --pubkey=$(vidulumd tendermint show-validator) \

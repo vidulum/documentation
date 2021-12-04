@@ -1,1 +1,1 @@
-# Testnet
+# Testnet Full Node & Validator
