@@ -8,14 +8,14 @@ This technical documentation for Vidulum will provide you detailed information a
 
 - **Become part of Vidulum Chain Mainnet**
   - [Deploy a Full node](./mainnet.md)
-  - [Become validator](./mainnet_validator.md#section-3-promote-full-node-to-validator-role);
+  - [Become validator](./mainnet.md#section-3-promote-full-node-to-validator-role);
 
 
 #### Vidulum Testnet
 
 - **Become part of Vidulum Chain Testnet**
   - [Deploy a Full node](./testnet.md)
-  - [Become validator](./testnet_validator.md#section-3-promote-full-node-to-validator-role);
+  - [Become validator](./testnet.md#section-3-promote-full-node-to-validator-role);
 
 
 ### Useful links
