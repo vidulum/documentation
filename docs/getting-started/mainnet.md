@@ -37,7 +37,10 @@
 
 
 ## SECTION 1: System preparation
-**NOTE:** ALL TASKS IN **SECTION 1** HAVE TO BE PERFORMED AS **root**
+::: tip Remarks:
+**ALL TASKS IN **SECTION 1** HAVE TO BE PERFORMED AS **root**
+:::
+
 
 ### Add dedicated user
 ```bash
