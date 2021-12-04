@@ -15,7 +15,7 @@
           <div class="column">
             <h3>Developers</h3>
             <div class="link">
-              <a href="https://explorers.vidulum.app">
+              <a href="https://explorers.vidulum.app" target="_blank">
                 Explorers
               </a>
             </div>
@@ -25,7 +25,7 @@
               </a>
             </div>
             <div class="link">
-              <a href="https://vidulum.app/testnet-faucet">
+              <a href="https://vidulum.app/testnet-faucet" target="_blank">
                 Faucet
               </a>
             </div>
@@ -33,12 +33,12 @@
           <div class="column">
             <h3>Wallets</h3>
             <div class="link">
-              <a href="https://play.google.com/store/apps/details?id=com.vidulumwallet.app">
+              <a href="https://play.google.com/store/apps/details?id=com.vidulumwallet.app" target="_blank">
                 Android
               </a>
             </div>
             <div class="link">
-              <a href="https://apps.apple.com/us/app/id1505859171">
+              <a href="https://apps.apple.com/us/app/id1505859171" target="_blank">
                 iOS
               </a>
             </div>            

@@ -51,7 +51,7 @@
             <div>
               <h3>Partners</h3>
               <p>Become part of Vidulum future and join project as Partner</p>
-              <a href="https://vidulum.app/contact.html">
+              <a href="https://vidulum.app/contact.html" target="_blank">
                 Join us
                 <img
                   class="action-arrow"
@@ -71,7 +71,7 @@
                 Connect with our team, community and stay up-to-date with
                 project development updates
               </p>
-              <a href="https://vidulum.app/about.html">
+              <a href="https://vidulum.app/about.html" target="_blank">
                 Connect
                 <img
                   class="action-arrow"
