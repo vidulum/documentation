@@ -33,8 +33,8 @@
             </div>
             <div>
               <h3>Developers</h3>
-              <p>View our latest chain releases and features</p>
-              <a href="/releases">
+              <p>Check how to become part of Vidulum chain and project</p>
+              <a href="/getting-started">
                 Get involved
                 <img
                   class="action-arrow"
@@ -50,8 +50,8 @@
             </div>
             <div>
               <h3>Partners</h3>
-              <p>Join the others and be part of our Chain project</p>
-              <a href="/partners">
+              <p>Become part of Vidulum future and join project as Partner</p>
+              <a href="https://vidulum.app/contact.html">
                 Join us
                 <img
                   class="action-arrow"
@@ -68,10 +68,10 @@
             <div>
               <h3>Community</h3>
               <p>
-                Connect with our developer community and stay tuned with our
-                Chain development updates
+                Connect with our team, community and stay up-to-date with
+                project development updates
               </p>
-              <a href="/community">
+              <a href="https://vidulum.app/about.html">
                 Connect
                 <img
                   class="action-arrow"
@@ -81,32 +81,6 @@
               </a>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div class="pay-doc">
-        <div class="left">
-          <h1 class="text-header">Crypto.com Pay Documents</h1>
-          <p>
-            Crypto.com Pay Checkout is a feature of Crypto.com Pay, which
-            utilizes Vidulum Chain as a high performing native blockchain
-            solution
-          </p>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://pay-docs.crypto.com/"
-          >
-            Learn more
-            <img
-              class="action-arrow"
-              :src="$withBase('/arrow_blue.svg')"
-              alt="arrow"
-            />
-          </a>
-        </div>
-        <div class="right">
-          <img class="logo" :src="$withBase('/pay_doc.svg')" alt="pay_doc" />
         </div>
       </div>
 

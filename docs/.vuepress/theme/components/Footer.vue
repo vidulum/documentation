@@ -14,18 +14,18 @@
         <div class="navLinks">
           <div class="column">
             <h3>Developers</h3>
-            <!-- <div class="link">
-              <a href="/explorer">
-                Explorer
-              </a>
-            </div> -->
             <div class="link">
-              <a href="/docs">
+              <a href="https://explorers.vidulum.app">
+                Explorers
+              </a>
+            </div>
+            <div class="link">
+              <a href="/getting-started">
                 Documentation
               </a>
             </div>
             <div class="link">
-              <a href="/faucet">
+              <a href="https://vidulum.app/testnet-faucet">
                 Faucet
               </a>
             </div>
@@ -33,26 +33,15 @@
           <div class="column">
             <h3>Wallets</h3>
             <div class="link">
-              <a href="/wallets">
-                Wallets
+              <a href="https://play.google.com/store/apps/details?id=com.vidulumwallet.app">
+                Android
               </a>
             </div>
-          </div>
-          <div class="column">
-            <h3>Partners</h3>
             <div class="link">
-              <a href="/partners">
-                Partners
+              <a href="https://apps.apple.com/us/app/id1505859171">
+                iOS
               </a>
-            </div>
-          </div>
-          <div class="column">
-            <h3>Community</h3>
-            <div class="link">
-              <a href="/community">
-                Community
-              </a>
-            </div>
+            </div>            
           </div>
         </div>
         <div class="socials">
