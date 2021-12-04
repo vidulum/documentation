@@ -47,7 +47,7 @@ module.exports = {
               link: "https://play.google.com/store/apps/details?id=com.vidulumwallet.app"
             },
             {
-              text: "Vidulum Wallet (iOS)"
+              text: "Vidulum Wallet (iOS)",
               link: "https://apps.apple.com/us/app/id1505859171"
             }
           ]
