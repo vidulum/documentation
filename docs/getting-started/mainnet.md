@@ -271,4 +271,4 @@ vidulumd tx staking create-validator \
     --keyring-backend os
 ```
 
-Once that is done you should see your node listed here: https://explorers.vidulum.app/vidulum/staking
+Once that is done you should see your node listed in [Vidulum Explorer](https://explorers.vidulum.app/vidulum/staking)
