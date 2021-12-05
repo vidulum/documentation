@@ -2,47 +2,49 @@
 
 <!-- MarkdownTOC autolink="true" -->
 
-- [SECTION 0: Requirements](#section-0-requirements)
-- [SECTION 1: System preparation](#section-1-system-preparation)
-  - [Add dedicated user](#add-dedicated-user)
-  - [Go deployment](#go-deployment)
-    - [Download and extract repository](#download-and-extract-repository)
-  - [Firewall Configuration](#firewall-configuration)
-  - [systemd Service Configuration](#systemd-service-configuration)
-- [SECTION 2: Build and Initiate Vidulum Node](#section-2-build-and-initiate-vidulum-node)
-  - [Add Go environmental variables](#add-go-environmental-variables)
-  - [Build Vidulum binaries](#build-vidulum-binaries)
-  - [Vidulum Node Init](#vidulum-node-init)
-  - [Start node](#start-node)
-- [SECTION 3: Promote Full Node to Validator Role](#section-3-promote-full-node-to-validator-role)
-  - [Create Wallet](#create-wallet)
-  - [Create Validator](#create-validator)
+- [Mainnet Full Node & Validator](#mainnet-full-node--validator)
+  - [SECTION 0: Requirements](#section-0-requirements)
+  - [SECTION 1: System preparation](#section-1-system-preparation)
+    - [Add dedicated user](#add-dedicated-user)
+    - [Go deployment](#go-deployment)
+      - [Download and extract repository](#download-and-extract-repository)
+    - [Firewall Configuration](#firewall-configuration)
+    - [systemd Service Configuration](#systemd-service-configuration)
+  - [SECTION 2: Build and Initiate Vidulum Node](#section-2-build-and-initiate-vidulum-node)
+    - [Add Go environmental variables](#add-go-environmental-variables)
+    - [Build Vidulum binaries](#build-vidulum-binaries)
+    - [Vidulum Node Init](#vidulum-node-init)
+    - [Start node](#start-node)
+  - [SECTION 3: Promote Full Node to Validator Role](#section-3-promote-full-node-to-validator-role)
+    - [Create Wallet](#create-wallet)
+    - [Create Validator](#create-validator)
 
 <!-- /MarkdownTOC -->
 
-
 ## SECTION 0: Requirements
- - Ubuntu 20.04 LTS
 
+- Ubuntu 20.04 LTS
 
 **Minimum**
- - 2 CPUs
- - 4GB RAM
- - 200GB SSD
 
- **Recommended**
- - 4 CPUs
- - 8GB RAM
- - 200GB SSD
+- 2 CPUs
+- 4GB RAM
+- 200GB SSD
 
+**Recommended**
+
+- 4 CPUs
+- 8GB RAM
+- 200GB SSD
 
 ## SECTION 1: System preparation
+
 ::: tip NOTE:
 All tasks in **SECTION 1** have to be performed as **root**
 :::
 
-
 ### Add dedicated user
+
 ```bash
 sudo adduser vidulum
 ```
@@ -50,26 +52,29 @@ sudo adduser vidulum
 ### Go deployment
 
 #### Download and extract repository
+
 ```bash
 GOVER=$(curl https://go.dev/VERSION?m=text)
 wget https://golang.org/dl/${GOVER}.linux-amd64.tar.gz
 sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf ${GOVER}.linux-amd64.tar.gz
 ```
+
 **NOTE**: That will install latest version of Go
 
-
 ### Firewall Configuration
+
 ```bash
-ufw limit ssh/tcp comment 'Rate limit for openssh server' 
+ufw limit ssh/tcp comment 'Rate limit for openssh server'
 ufw default deny incoming
 ufw default allow outgoing
 ufw allow 26656/tcp comment 'Cosmos SDK/Tendermint P2P (Vidulum Validator)'
 ufw enable
 ```
 
-
 ### systemd Service Configuration
-Create service file ***/lib/systemd/system/vidulum.service*** for **Vidulum Validator** with following content:
+
+Create service file **_/lib/systemd/system/vidulum.service_** for **Vidulum Validator** with following content:
+
 ```bash
 [Unit]
 Description=Vidulum Validator
@@ -89,21 +94,23 @@ WantedBy=multi-user.target
 ```
 
 Once file is created you can reload systemd configuration and enable service.
+
 ```bash
 systemctl daemon-reload && systemctl enable vidulum.service
 ```
 
-
 ## SECTION 2: Build and Initiate Vidulum Node
+
 ::: tip NOTE:
 All tasks in **SECTION 2** have to be performed as **vidulum** user created in **SECTION 1**
 :::
 
-
 ### Add Go environmental variables
+
 Set of variables, which should be set for user(s) with need to build Go apps.
 
-Add Golang specific variables to ```${HOME}/.profile``` 
+Add Golang specific variables to `${HOME}/.profile`
+
 ```bash
 # add environmental variables for Go
 if [ -f "/usr/local/go/bin/go" ] ; then
@@ -114,11 +121,11 @@ if [ -f "/usr/local/go/bin/go" ] ; then
 fi
 ```
 
-Once modified and saved, reload ```${HOME}/.profile``` to set variables in current user session
+Once modified and saved, reload `${HOME}/.profile` to set variables in current user session
+
 ```bash
 . ~/.profile
 ```
-
 
 ### Build Vidulum binaries
 
@@ -131,12 +138,14 @@ mkdir -p ${HOME}/.local/bin
 ```
 
 Now clone GitHub repository with Vidulum source code, build binaries and place in correct folder.
+
 ```bash
 git clone https://github.com/vidulum/mainnet && cd mainnet && make install
 mv ${HOME}/go/bin/vidulumd ${HOME}/.local/bin
 ```
 
 ### Vidulum Node Init
+
 ```bash
 vidulumd init NODE_NAME --chain-id vidulum-1
 ```
@@ -145,36 +154,40 @@ vidulumd init NODE_NAME --chain-id vidulum-1
 Replace NODE_NAME with name you want to assign to your validator.
 :::
 
-In ***${HOME}/.vidulum/config/config.toml*** fine line which starts with ***persistent_peers =*** and replace with following content
+In **_\${HOME}/.vidulum/config/config.toml_** fine line which starts with **_persistent_peers =_** and replace with following content
+
 ```bash
 persistent_peers =“209688f5bccb88f6397a97cc11ab545a014aa559@137.184.92.115:26656,d45e9dd8878d7c22d59ded3557f61da37420a4c6@95.217.118.211:26656,cae7d9d21c1752300277eab72d861b0c6638b2e3@164.68.119.151:26656,7a44ea6ecb59b0e4bd01b58a75163ec64b164bb4@63.210.148.24:26656,3bf3d98dfd4000dd5ff8189882a9f96848b99b87@137.220.60.196:26656,057fa262fe2030cc6e9095dc52d15b79ffcb923d@142.115.20.25:26656”
 ```
 
-Now it is time to download ***genesis.json*** file, which will allow node synchronization
+Now it is time to download **_genesis.json_** file, which will allow node synchronization
+
 ```bash
 wget https://raw.githubusercontent.com/vidulum/mainnet/main/genesis.json -o ${HOME}/.vidulum/configure
 ```
 
-
 ### Start node
+
 Once node is configured you can start it and synchronize chain database.
+
 ```bash
 sudo systemctl start vidulum.service
 ```
 
-
 To keep watching logs generated by Vidulum node use command below.
+
 ```bash
 journalctl -u vidulum -f
 ```
 
-
 To check, if node is synchronized.
+
 ```bash
 curl http://localhost:26657/status
 ```
 
-You will see JSON output where you need to locate ***catching_up*** field. When it will have value ***true*** means node is still synchronizing. When value is ***false*** means node is fully synchronized. Then you can move on to creating validator.
+You will see JSON output where you need to locate **_catching_up_** field. When it will have value **_true_** means node is still synchronizing. When value is **_false_** means node is fully synchronized. Then you can move on to creating validator.
+
 ```json
 ........
     },
@@ -192,9 +205,8 @@ You will see JSON output where you need to locate ***catching_up*** field. When 
 ........
 ```
 
-
-
 ## SECTION 3: Promote Full Node to Validator Role
+
 ::: tip NOTE:
 All tasks in **SECTION 3** have to be performed as **vidulum** user created in **SECTION 1**.
 Steps in this section will allow to promote full node to validator role. If you need full node only, skip this section.
@@ -202,15 +214,18 @@ Steps in this section will allow to promote full node to validator role. If you 
 
 In order to create validator you need to have Vidulum account and some funds, whcih can be delegated to validator.
 
-
 ### Create Wallet
+
 In order to create Vidulum wallet we use binaries we compiled earlier.
+
 ```bash
 vidulumd keys add WALLET_NAME --keyring-backend os
 ```
+
 You will be asked to provide password, which will protect keyring.
 
 Output of this command will be similar to presented below
+
 ```bash
 - name: WALLET_NAME
   type: local
@@ -230,11 +245,13 @@ When you generate wallet in last line you will have line full of random words. T
 :::
 
 Now you have to transfer some funds to your wallet. To check balance on your account:
+
 ```bash
 vidulumd query bank balances vdl1hjhglrzggqtdhsh3ag8jp0cckmva5pe976jxel
 ```
 
 Output will be similar to this:
+
 ```bash
 balances:
 - amount: "2000000"
@@ -249,6 +266,7 @@ Denomiation presented by command is in uvdl. For your information 1vdl = 1000000
 :::
 
 ### Create Validator
+
 Now we can turn full node into validator using account and funds created in previous steps.
 
 ```bash
@@ -256,7 +274,7 @@ vidulumd tx staking create-validator \
     --commission-max-change-rate="0.05" \
     --commission-max-rate="0.3" \
     --commission-rate="0.1" \
-    --amount="1000000uvdl" \
+    --amount="10000000uvdl" \
     --pubkey=$(vidulumd tendermint show-validator) \
     --website="https://your.website" \
     --details="Description of your validator." \
