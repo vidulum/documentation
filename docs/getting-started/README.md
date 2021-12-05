@@ -1,44 +1,32 @@
 # Getting Started
 
-Thanks for your interest in Crypto.org Chain. In this technical documentation, we have covered node setup instructions, our all-in-one command-line interface `chain-maind`, and different SDK modules we utilized in the Crypto.org Chain.
+This technical documentation for Vidulum will provide you detailed information about chain setup, node and validator setup, command line interface to navigate node and/or validator as well as other services included in Vidulum eco-system.
 
-### What's next?
+:::tip NOTE
+In case you are interested in setting up full node or validator, we strongly recommend to start from Testnet deployment.
+Testnet provides risk free environment where you can afford to make any type of mistake and you will not loose your funds as this chain operates on tokens with no value.
+:::
 
-#### Crypto.org Mainnet
+### What's in the menu?
 
-- **Join Crypto.org Chain Mainnet**
-  - [As a validator](./mainnet_validator.md);
-  - [Build a Full node](./mainnet.md)
-  
-- Deploy mainnet node with [1 click](./aws-1click.md):
+#### Vidulum Mainnet
 
-    Try running Full Nodes or Validators connected to our mainnet on 
-    - [AWS](./aws-1click.md); or 
-    - [Azure](./azure-1click.md).
+- **Become part of Vidulum Chain Mainnet**
+  - [Deploy a Full node](./mainnet.md)
+  - [Become validator](./mainnet.md#section-3-promote-full-node-to-validator-role);
 
-#### Crypto.org Croeseid Testnet
 
-- [Join Croeseid Testnet](./croeseid-testnet.md):
+#### Vidulum Testnet
 
-    Try running Full Nodes or Validators connected to our Croeseid Testnet.
+- **Become part of Vidulum Chain Testnet**
+  - [Deploy a Full node](./testnet.md)
+  - [Become validator](./testnet.md#section-3-promote-full-node-to-validator-role);
 
-- Deploy testnet node with [1 click](./aws-1click.md):
-
-    Try running Full Nodes or Validators connected to our Croeseid Testnet on 
-    - [AWS](./aws-1click.md); or 
-    - [Azure](./azure-1click.md).
-
-- [Deploy testnet node with nix](./croeseid-testnet-nix.md): 
-
-    Install and run full nodes or validators connected to our Croeseid Testnet with nix.
-
-#### Devnet
-
-- **Devnet** - [Build latest development version](./local-devnet.md): Try running latest development network (Devnet)
 
 ### Useful links
 
-- [Project Website](http://crypto.org/)
-- [Project Repository](https://github.com/crypto-org-chain/chain-main)
-- Community chatrooms (non-technical): [Discord](https://discord.gg/nsp9JTC) [Telegram](https://t.me/CryptoComOfficial)
-- Developer community channel (technical): [![Support Server](https://img.shields.io/discord/783264383978569728.svg?color=7289da&label=Crypto.org Chain =discord =flat-square)](https://discord.gg/pahqHz26q4)
+- [Project Website](http://vidulum.app/)
+- [Project Repository](https://github.com/vidulum)
+- [Chain Explorers](https://explorers.vidulum.app/)
+- [Vidulum Testnet Faucet](https://vidulum.app/testnet-faucet) 
+- [Discord](https://discord.gg/hne7Ccq)

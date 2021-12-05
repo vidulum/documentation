@@ -4,19 +4,19 @@
 
 - [SECTION 0: Requirements](#section-0-requirements)
 - [SECTION 1: System preparation](#section-1-system-preparation)
-  - [Add dedicated user](#add-dedicated-user)
-  - [Go deployment](#go-deployment)
-    - [Download and extract repository](#download-and-extract-repository)
-  - [Firewall Configuration](#firewall-configuration)
-  - [systemd Service Configuration](#systemd-service-configuration)
-- [SECTION 2: Build and Initiate Vidulum Node](#section-2-build-and-initiate-vidulum-node)
-  - [Add Go environmental variables](#add-go-environmental-variables)
-  - [Build Vidulum binaries](#build-vidulum-binaries)
-  - [Vidulum Node Init](#vidulum-node-init)
-  - [Start node](#start-node)
+	- [Add dedicated user](#add-dedicated-user)
+	- [Go deployment](#go-deployment)
+		- [Download and extract repository](#download-and-extract-repository)
+	- [Firewall Configuration](#firewall-configuration)
+	- [systemd Service Configuration](#systemd-service-configuration)
+- [SECTION 2: Build and Initiate Vidulum Testnet Node](#section-2-build-and-initiate-vidulum-testnet-node)
+	- [Add Go environmental variables](#add-go-environmental-variables)
+	- [Build Vidulum binaries](#build-vidulum-binaries)
+	- [Vidulum Node Init](#vidulum-node-init)
+	- [Start node](#start-node)
 - [SECTION 3: Promote Full Node to Validator Role](#section-3-promote-full-node-to-validator-role)
-  - [Create Wallet](#create-wallet)
-  - [Create Validator](#create-validator)
+	- [Create Wallet](#create-wallet)
+	- [Create Validator](#create-validator)
 
 <!-- /MarkdownTOC -->
 
@@ -44,7 +44,7 @@ All tasks in **SECTION 1** have to be performed as **root**
 
 ### Add dedicated user
 ```bash
-sudo adduser vidulum
+sudo adduser testvidulum
 ```
 
 ### Go deployment
@@ -63,23 +63,23 @@ sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf ${GOVER}.linux-amd64.ta
 ufw limit ssh/tcp comment 'Rate limit for openssh server' 
 ufw default deny incoming
 ufw default allow outgoing
-ufw allow 26656/tcp comment 'Cosmos SDK/Tendermint P2P (Vidulum Validator)'
+ufw allow 26656/tcp comment 'Cosmos SDK/Tendermint P2P (Vidulum Testnet Validator)'
 ufw enable
 ```
 
 
 ### systemd Service Configuration
-Create service file ***/lib/systemd/system/vidulum.service*** for **Vidulum Validator** with following content:
+Create service file ***/lib/systemd/system/testvidulum.service*** for **Vidulum Testnet Validator** with following content:
 ```bash
 [Unit]
-Description=Vidulum Validator
+Description=Vidulum Testnet Validator
 After=network.target
 
 [Service]
-Group=vidulum
-User=vidulum
-WorkingDirectory=/home/vidulum
-ExecStart=/home/vidulum/.local/bin/vidulumd start
+Group=testvidulum
+User=testvidulum
+WorkingDirectory=/home/testvidulum
+ExecStart=/home/testvidulum/.local/bin/testvidulumd start
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=8192
@@ -90,13 +90,13 @@ WantedBy=multi-user.target
 
 Once file is created you can reload systemd configuration and enable service.
 ```bash
-systemctl daemon-reload && systemctl enable vidulum.service
+systemctl daemon-reload && systemctl enable testvidulum.service
 ```
 
 
-## SECTION 2: Build and Initiate Vidulum Node
+## SECTION 2: Build and Initiate Vidulum Testnet Node
 ::: tip NOTE:
-All tasks in **SECTION 2** have to be performed as **vidulum** user created in **SECTION 1**
+All tasks in **SECTION 2** have to be performed as **testvidulum** user created in **SECTION 1**
 :::
 
 
@@ -122,7 +122,7 @@ Once modified and saved, reload ```${HOME}/.profile``` to set variables in curre
 
 ### Build Vidulum binaries
 
-Before we build binaries for Vidulum node/validator we create folder where binaries will be stored.
+Before we build binaries for Vidulum testnet node/validator we create folder where binaries will be stored.
 Ubuntu adds this folder to search path, when it exists, so we can easily run binaries in future when needed.
 
 ```bash
@@ -132,40 +132,40 @@ mkdir -p ${HOME}/.local/bin
 
 Now clone GitHub repository with Vidulum source code, build binaries and place in correct folder.
 ```bash
-git clone https://github.com/vidulum/mainnet && cd mainnet && make install
-mv ${HOME}/go/bin/vidulumd ${HOME}/.local/bin
+https://github.com/vidulum/testvidulum && cd testvidulum && make install
+mv ${HOME}/go/bin/testvidulumd ${HOME}/.local/bin
 ```
 
 ### Vidulum Node Init
 ```bash
-vidulumd init NODE_NAME --chain-id vidulum-1
+testvidulumd init NODE_NAME --chain-id testvidulum-1
 ```
 
 ::: tip NOTE:
 Replace NODE_NAME with name you want to assign to your validator.
 :::
 
-In ***${HOME}/.vidulum/config/config.toml*** fine line which starts with ***persistent_peers =*** and replace with following content
+In ***${HOME}/.testvidulum/config/config.toml*** fine line which starts with ***persistent_peers =*** and replace with following content
 ```bash
-persistent_peers =“209688f5bccb88f6397a97cc11ab545a014aa559@137.184.92.115:26656,d45e9dd8878d7c22d59ded3557f61da37420a4c6@95.217.118.211:26656,cae7d9d21c1752300277eab72d861b0c6638b2e3@164.68.119.151:26656,7a44ea6ecb59b0e4bd01b58a75163ec64b164bb4@63.210.148.24:26656,3bf3d98dfd4000dd5ff8189882a9f96848b99b87@137.220.60.196:26656,057fa262fe2030cc6e9095dc52d15b79ffcb923d@142.115.20.25:26656”
+persistent_peers =“e7ef78bb156f04f667e4a23a0782e4b1bb673165@216.128.150.25:26656,b9361329891f1acda1f93e55f73642736759e5bb@66.42.124.230:26656”
 ```
 
 Now it is time to download ***genesis.json*** file, which will allow node synchronization
 ```bash
-wget https://raw.githubusercontent.com/vidulum/mainnet/main/genesis.json -o ${HOME}/.vidulum/configure
+wget https://github.com/vidulum/testvidulum/releases/download/v1.0/genesis.json -o ${HOME}/.testvidulum/configure
 ```
 
 
 ### Start node
 Once node is configured you can start it and synchronize chain database.
 ```bash
-sudo systemctl start vidulum.service
+sudo systemctl start testvidulum.service
 ```
 
 
 To keep watching logs generated by Vidulum node use command below.
 ```bash
-journalctl -u vidulum -f
+journalctl -u testvidulum -f
 ```
 
 
@@ -196,7 +196,7 @@ You will see JSON output where you need to locate ***catching_up*** field. When 
 
 ## SECTION 3: Promote Full Node to Validator Role
 ::: tip NOTE:
-All tasks in **SECTION 3** have to be performed as **vidulum** user created in **SECTION 1**.
+All tasks in **SECTION 3** have to be performed as **testvidulum** user created in **SECTION 1**.
 Steps in this section will allow to promote full node to validator role. If you need full node only, skip this section.
 :::
 
@@ -206,7 +206,7 @@ In order to create validator you need to have Vidulum account and some funds, wh
 ### Create Wallet
 In order to create Vidulum wallet we use binaries we compiled earlier.
 ```bash
-vidulumd keys add WALLET_NAME --keyring-backend os
+testvidulumd keys add WALLET_NAME --keyring-backend os
 ```
 You will be asked to provide password, which will protect keyring.
 
@@ -214,8 +214,8 @@ Output of this command will be similar to presented below
 ```bash
 - name: WALLET_NAME
   type: local
-  address: vdl1hjhglrzggqtdhsh3ag8jp0cckmva5pe976jxel
-  pubkey: '{"@type":"/cosmos.crypto.secp256k1.PubKey","key":"Anriv0TNrt1cz3+pSq2UDNiJQZINNlgtknousVlcujZ7"}'
+  address: testvdl1u9a5u30svfrhajq7jgquc02956lxgezwx2lnkx
+  pubkey: '{"@type":"/cosmos.crypto.secp256k1.PubKey","key":"AwCmb1H3nLx9uPqrcAqKQPRYe/chlkK8BWCJh3P3Kkry"}'
   mnemonic: ""
 
 
@@ -226,19 +226,23 @@ some words forming mnemonic seed will be placed here you have to write them down
 ```
 
 ::: tip NOTE:
-When you generate wallet in last line you will have line full of random words. This is mnemonic seed (allows to restore wallet). Write that down and keep safe. Using mnemonic you will be able to restore your account on another machine and access your funds. Lost of mnemonic might drive to inability to access your funds stored on Vidulum chain.
+When you generate wallet in last line you will have line full of random words. This is mnemonic seed (allows to restore wallet). Write that down and keep safe. Using mnemonic you will be able to restore your account on another machine and access your funds. Lost of mnemonic might drive to inability to access your funds stored on Vidulum testnet chain.
 :::
 
-Now you have to transfer some funds to your wallet. To check balance on your account:
+In order to get some initial funds for your test node/validator you can visit faucet.
+ - [Vidulum Testnet Faucet](https://vidulum.app/testnet-faucet) 
+
+
+Once you request funds from faucet check balance on your account:
 ```bash
-vidulumd query bank balances vdl1hjhglrzggqtdhsh3ag8jp0cckmva5pe976jxel
+testvidulumd query bank balances testvdl1u9a5u30svfrhajq7jgquc02956lxgezwx2lnkx
 ```
 
 Output will be similar to this:
 ```bash
 balances:
-- amount: "2000000"
-  denom: uvdl
+- amount: "20000000"
+  denom: utvdl
 pagination:
   next_key: null
   total: "0"
@@ -252,12 +256,12 @@ Denomiation presented by command is in uvdl. For your information 1vdl = 1000000
 Now we can turn full node into validator using account and funds created in previous steps.
 
 ```bash
-vidulumd tx staking create-validator \
+testvidulumd tx staking create-validator \
     --commission-max-change-rate="0.05" \
     --commission-max-rate="0.3" \
     --commission-rate="0.1" \
     --amount="1000000uvdl" \
-    --pubkey=$(vidulumd tendermint show-validator) \
+    --pubkey=$(testvidulumd tendermint show-validator) \
     --website="https://your.website" \
     --details="Description of your validator." \
     --security-contact="contact@your.domain" \
@@ -271,4 +275,4 @@ vidulumd tx staking create-validator \
     --keyring-backend os
 ```
 
-Once that is done you should see your node listed in [Vidulum Explorer](https://explorers.vidulum.app/vidulum/staking)
+Once that is done you should see your node listed in [Vidulum Explorer](https://explorers.vidulum.app/vidulumtestnet/staking)

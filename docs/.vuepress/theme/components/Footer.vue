@@ -14,18 +14,18 @@
         <div class="navLinks">
           <div class="column">
             <h3>Developers</h3>
-            <!-- <div class="link">
-              <a href="/explorer">
-                Explorer
-              </a>
-            </div> -->
             <div class="link">
-              <a href="/docs">
+              <a href="https://explorers.vidulum.app" target="_blank">
+                Explorers
+              </a>
+            </div>
+            <div class="link">
+              <a href="/getting-started">
                 Documentation
               </a>
             </div>
             <div class="link">
-              <a href="/faucet">
+              <a href="https://vidulum.app/testnet-faucet" target="_blank">
                 Faucet
               </a>
             </div>
@@ -33,62 +33,35 @@
           <div class="column">
             <h3>Wallets</h3>
             <div class="link">
-              <a href="/wallets">
-                Wallets
+              <a href="https://play.google.com/store/apps/details?id=com.vidulumwallet.app" target="_blank">
+                Android
               </a>
             </div>
-          </div>
-          <div class="column">
-            <h3>Partners</h3>
             <div class="link">
-              <a href="/partners">
-                Partners
+              <a href="https://apps.apple.com/us/app/id1505859171" target="_blank">
+                iOS
               </a>
-            </div>
-          </div>
-          <div class="column">
-            <h3>Community</h3>
-            <div class="link">
-              <a href="/community">
-                Community
-              </a>
-            </div>
+            </div>            
           </div>
         </div>
         <div class="socials">
-          <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/cryptocom">
+          <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/VidulumApp">
             <img :src="$withBase('/social/twitter.svg')" alt="twitter" />
           </a>
-          <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/CryptoComOfficial">
-            <img :src="$withBase('/social/facebook.svg')" alt="facebook" />
-          </a>
-          <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/cryptocomofficial/">
-            <img :src="$withBase('/social/instagram.svg')" alt="instagram" />
-          </a>
-          <a target="_blank" rel="noopener noreferrer" href="https://hk.linkedin.com/company/cryptocom">
-            <img :src="$withBase('/social/linkedin.svg')" alt="linkedin" />
-          </a>
           <a target="_blank" rel="noopener noreferrer"
-            href="https://www.youtube.com/channel/UCOMprzxakZOqmY23LYIawmg"
-          >
+            href="https://www.youtube.com/channel/UCNd92ZViZweu6zz5ydt_wrQ">
             <img :src="$withBase('/social/youtube.svg')" alt="youtube" />
           </a>
-          <a target="_blank" rel="noopener noreferrer" href="https://www.reddit.com/r/Crypto_com/">
+          <a target="_blank" rel="noopener noreferrer" href="https://www.reddit.com/r/VidulumOfficial/">
             <img :src="$withBase('/social/reddit.svg')" alt="reddit" />
           </a>
-          <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/pahqHz26q4">
+          <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/hne7Ccq">
             <img :src="$withBase('/social/discord.svg')" alt="discord" />
-          </a>
-          <a target="_blank" rel="noopener noreferrer" href="https://t.me/CryptoComOfficial">
-            <img :src="$withBase('/social/telegram.svg')" alt="telegram" />
-          </a>
-          <a target="_blank" rel="noopener noreferrer" href="https://open.kakao.com/o/gGH1WQM">
-            <img :src="$withBase('/social/kakaotalk.svg')" alt="kakaotalk" />
           </a>
         </div>
       </div>
       <p class="copyright">
-        Copyright © {{ currentYear }} Crypto.org. All rights reserved.
+        Copyright © {{ currentYear }} Vidulum. All rights reserved.
       </p>
     </div>
   </footer>

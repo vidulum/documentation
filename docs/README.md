@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: CRO_icon.png
+heroImage: VDL_icon.png
 actionText: Get Started →
 actionLink: ../getting-started/
 footer: true
