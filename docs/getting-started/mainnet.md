@@ -35,7 +35,7 @@
 
 - 4 CPUs
 - 8GB RAM
-- 200GB SSD
+- 1TB SSD
 
 ## SECTION 1: System preparation
 
