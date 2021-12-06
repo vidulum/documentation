@@ -2,22 +2,21 @@
 
 <!-- MarkdownTOC autolink="true" -->
 
-- [Mainnet Full Node & Validator](#mainnet-full-node--validator)
-  - [SECTION 0: Requirements](#section-0-requirements)
-  - [SECTION 1: System preparation](#section-1-system-preparation)
-    - [Add dedicated user](#add-dedicated-user)
-    - [Go deployment](#go-deployment)
-      - [Download and extract repository](#download-and-extract-repository)
-    - [Firewall Configuration](#firewall-configuration)
-    - [systemd Service Configuration](#systemd-service-configuration)
-  - [SECTION 2: Build and Initiate Vidulum Node](#section-2-build-and-initiate-vidulum-node)
-    - [Add Go environmental variables](#add-go-environmental-variables)
-    - [Build Vidulum binaries](#build-vidulum-binaries)
-    - [Vidulum Node Init](#vidulum-node-init)
-    - [Start node](#start-node)
-  - [SECTION 3: Promote Full Node to Validator Role](#section-3-promote-full-node-to-validator-role)
-    - [Create Wallet](#create-wallet)
-    - [Create Validator](#create-validator)
+- [SECTION 0: Requirements](#section-0-requirements)
+- [SECTION 1: System preparation](#section-1-system-preparation)
+  - [Add dedicated user](#add-dedicated-user)
+  - [Go deployment](#go-deployment)
+    - [Download and extract repository](#download-and-extract-repository)
+  - [Firewall Configuration](#firewall-configuration)
+  - [systemd Service Configuration](#systemd-service-configuration)
+- [SECTION 2: Build and Initiate Vidulum Node](#section-2-build-and-initiate-vidulum-node)
+  - [Add Go environmental variables](#add-go-environmental-variables)
+  - [Build Vidulum binaries](#build-vidulum-binaries)
+  - [Vidulum Node Init](#vidulum-node-init)
+  - [Start node](#start-node)
+- [SECTION 3: Promote Full Node to Validator Role](#section-3-promote-full-node-to-validator-role)
+  - [Create Wallet](#create-wallet)
+  - [Create Validator](#create-validator)
 
 <!-- /MarkdownTOC -->
 
