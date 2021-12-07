@@ -1,13 +1,41 @@
 # Validator Migration
 
-Validator migration process is important and required when server
+Migration process of validator service is important part of providing infrastructure services for Vidulum chain.
 
+When validator needs to be migrated?
+Here is few situations which might required validation service to be moved:
+ - Server ran out of resources and can't be expanded
+ - System crashed and needs to be reinstalled
+ - Maintenance of current system and validation service will be moved to backup node for that period
 
-## SECTION 1: System preparation
 ::: tip NOTE:
-Please follow migration sateps very carefuly. If you are not sure about certain steps, reach out to our validator community on Discord.
-Be asware that running two validators with same key will lead to slashing and might lead to vvalidator account being tombstoned.
+Please follow migration steps very carefuly. If you are not sure about certain steps or need more clarification, reach out to our validator community on Discord, please.
+Be asware that running two validators with same key will lead to slashing and might lead to validator account being tombstoned.
 :::
 
-There are 2 
+
+
+## SECTION 1: Preparation
+Configuration of node and validator is stored in
+```bash
+${HOME}/.vidulum/config
+```
+
+When you look into that folder you will find 
+
+```bash
+.vidulum/
+└── config
+    ├── addrbook.json
+    ├── app.toml
+    ├── client.toml
+    ├── config.toml
+    ├── genesis.json
+    ├── node_key.json
+    └── priv_validator_key.json
+```
+
+
+
+## SECTION 2: Migration steps
 
