@@ -39,3 +39,19 @@ When you look into that folder you will find
 
 ## SECTION 2: Migration steps
 
+### Existing Validator
+
+::: tip NOTE:
+All steps and references to folders assume that node/validator configuration matches Vidulum deployment guides. 
+In case you have different names for services and folders adjust command accordingly, please.
+:::
+
+Login to existing validator 
+
+
+First stop service on existing system
+```bash
+sudo systemctl stop vidulum.service
+```
+
+Once service is stopped rename exist
