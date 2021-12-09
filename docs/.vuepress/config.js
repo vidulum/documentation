@@ -26,12 +26,8 @@ module.exports = {
               link: "/getting-started/testnet.md"
             },
             {
-              text: "Validator Migration",
-              link: "/getting-started/validator_migration.md"
-            },
-                                    {
-              text: "Validator Identity",
-              link: "/getting-started/validator_identity.md"
+              text: "Maintenance",
+              link: "/getting-started/maintenance.md"
             },
           ]
       },
@@ -66,8 +62,7 @@ module.exports = {
         "",
         "mainnet",
         "testnet",
-        "validator_migration",
-        "validator_identity"
+        "maintenance"
       ],
       "/resources/": [
         "chain-integration",
