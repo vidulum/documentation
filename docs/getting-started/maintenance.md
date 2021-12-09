@@ -1,10 +1,11 @@
 # Maintenance Tasks for Node and Validator
 
-<!-- MarkdownTOC autolink="true" levels="3" -->
+<!-- MarkdownTOC autolink="true" levels="1,2,3" -->
 
-- [PART 0: Configuration files location](#part-0-configuration-files-location)
-- [PART 1: Steps to perform on existing validator](#part-1-steps-to-perform-on-existing-validator)
-- [PART 2: Steps to perform on new server](#part-2-steps-to-perform-on-new-server)
+- [Validator Migration to New Server](#validator-migration-to-new-server)
+    - [PART 0: Configuration files location](#part-0-configuration-files-location)
+    - [PART 1: Steps to perform on existing validator](#part-1-steps-to-perform-on-existing-validator)
+    - [PART 2: Steps to perform on new server](#part-2-steps-to-perform-on-new-server)
 
 <!-- /MarkdownTOC -->
 
