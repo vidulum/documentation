@@ -20,11 +20,13 @@
 ## Validator Migration to New Server
 
 **What is validator migration?**
+
 Validator migration is a process of assuming validator role on new node.
 That will turn new full node into validator. This process is important part of providing infrastructure services for Vidulum chain.
 
 
 **When validator needs to be migrated?**
+
 Here is few situations which might required validation service to be moved:
  - Server ran out of resources and can't be expanded - move to new server required
  - System crashed and needs to be reinstalled - fresh start
