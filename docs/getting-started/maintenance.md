@@ -36,6 +36,8 @@ Here is few situations which might required validation service to be moved:
 ::: tip NOTE:
 Please follow migration steps very carefuly. If you are not sure about certain steps or need more clarification, reach out to our validator community on Discord, please.
 Be aware that running two nodes as validators with same key will lead to slashing and might lead to validator account being tombstoned.
+
+**If you want to learn process use Vidulum Testnet, which is kept running for evaluation, testing and learning purposes.**
 :::
 
 
@@ -151,4 +153,4 @@ In output look for following line:
 catching_up: false
 ```
 
-If status if ***flase*** it means node is fully synchronized. At that point you should see in explorer that your node start signing blocks again.
+If status if ***false*** it means node is fully synchronized. At that point you should see in explorer that your node start signing blocks again.
