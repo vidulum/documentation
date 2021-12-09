@@ -1,18 +1,10 @@
 # Maintenance Tasks for Node and Validator
 
-<!-- MarkdownTOC autolink="true" -->
+<!-- MarkdownTOC autolink="true" levels="3" -->
 
-- [Validator Migration to New Server](#validator-migration-to-new-server)
-    - [PART 0: Configuration files location](#part-0-configuration-files-location)
-    - [PART 1: Steps to perform on existing validator](#part-1-steps-to-perform-on-existing-validator)
-        - [Stop and disable Vidulum service](#stop-and-disable-vidulum-service)
-        - [Rename files containing validator keys](#rename-files-containing-validator-keys)
-        - [Copy validator keys to new system](#copy-validator-keys-to-new-system)
-    - [PART 2: Steps to perform on new server](#part-2-steps-to-perform-on-new-server)
-        - [Stop and disable Vidulum service](#stop-and-disable-vidulum-service-1)
-        - [Rename files containing node keys](#rename-files-containing-node-keys)
-        - [Enable validator keys](#enable-validator-keys)
-        - [Restart service](#restart-service)
+- [PART 0: Configuration files location](#part-0-configuration-files-location)
+- [PART 1: Steps to perform on existing validator](#part-1-steps-to-perform-on-existing-validator)
+- [PART 2: Steps to perform on new server](#part-2-steps-to-perform-on-new-server)
 
 <!-- /MarkdownTOC -->
 
