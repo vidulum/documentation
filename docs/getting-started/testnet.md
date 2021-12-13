@@ -139,7 +139,7 @@ mkdir -p ${HOME}/.local/bin
 Now clone GitHub repository with Vidulum source code, build binaries and place in correct folder.
 
 ```bash
-https://github.com/vidulum/testvidulum && cd testvidulum && make install
+git clone https://github.com/vidulum/testvidulum && cd testvidulum && make install
 mv ${HOME}/go/bin/testvidulumd ${HOME}/.local/bin
 ```
 
