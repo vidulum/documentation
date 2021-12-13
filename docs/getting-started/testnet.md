@@ -162,7 +162,7 @@ persistent_peers =“e7ef78bb156f04f667e4a23a0782e4b1bb673165@216.128.150.25:266
 Now it is time to download **_genesis.json_** file, which will allow node synchronization
 
 ```bash
-wget https://github.com/vidulum/testvidulum/releases/download/v1.0/genesis.json -o ${HOME}/.testvidulum/config/genesis.json
+wget https://github.com/vidulum/testvidulum/releases/download/v1.0/genesis.json -O ${HOME}/.testvidulum/config/genesis.json
 ```
 
 ### Start node
