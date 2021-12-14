@@ -2,22 +2,21 @@
 
 <!-- MarkdownTOC autolink="true" -->
 
-- [Testnet Full Node & Validator](#testnet-full-node--validator)
-  - [SECTION 0: Requirements](#section-0-requirements)
-  - [SECTION 1: System preparation](#section-1-system-preparation)
-    - [Add dedicated user](#add-dedicated-user)
-    - [Go deployment](#go-deployment)
-      - [Download and extract repository](#download-and-extract-repository)
-    - [Firewall Configuration](#firewall-configuration)
-    - [systemd Service Configuration](#systemd-service-configuration)
-  - [SECTION 2: Build and Initiate Vidulum Testnet Node](#section-2-build-and-initiate-vidulum-testnet-node)
-    - [Add Go environmental variables](#add-go-environmental-variables)
-    - [Build Vidulum binaries](#build-vidulum-binaries)
-    - [Vidulum Node Init](#vidulum-node-init)
-    - [Start node](#start-node)
-  - [SECTION 3: Promote Full Node to Validator Role](#section-3-promote-full-node-to-validator-role)
-    - [Create Wallet](#create-wallet)
-    - [Create Validator](#create-validator)
+- [SECTION 0: Requirements](#section-0-requirements)
+- [SECTION 1: System preparation](#section-1-system-preparation)
+  - [Add dedicated user](#add-dedicated-user)
+  - [Go deployment](#go-deployment)
+    - [Download and extract repository](#download-and-extract-repository)
+  - [Firewall Configuration](#firewall-configuration)
+  - [systemd Service Configuration](#systemd-service-configuration)
+- [SECTION 2: Build and Initiate Vidulum Testnet Node](#section-2-build-and-initiate-vidulum-testnet-node)
+  - [Add Go environmental variables](#add-go-environmental-variables)
+  - [Build Vidulum binaries](#build-vidulum-binaries)
+  - [Vidulum Node Init](#vidulum-node-init)
+  - [Start node](#start-node)
+- [SECTION 3: Promote Full Node to Validator Role](#section-3-promote-full-node-to-validator-role)
+  - [Create Wallet](#create-wallet)
+  - [Create Validator](#create-validator)
 
 <!-- /MarkdownTOC -->
 
@@ -140,7 +139,7 @@ mkdir -p ${HOME}/.local/bin
 Now clone GitHub repository with Vidulum source code, build binaries and place in correct folder.
 
 ```bash
-https://github.com/vidulum/testvidulum && cd testvidulum && make install
+git clone https://github.com/vidulum/testvidulum && cd testvidulum && make install
 mv ${HOME}/go/bin/testvidulumd ${HOME}/.local/bin
 ```
 
@@ -163,7 +162,7 @@ persistent_peers =“e7ef78bb156f04f667e4a23a0782e4b1bb673165@216.128.150.25:266
 Now it is time to download **_genesis.json_** file, which will allow node synchronization
 
 ```bash
-wget https://github.com/vidulum/testvidulum/releases/download/v1.0/genesis.json -o ${HOME}/.testvidulum/configure
+wget https://github.com/vidulum/testvidulum/releases/download/v1.0/genesis.json -O ${HOME}/.testvidulum/config/genesis.json
 ```
 
 ### Start node

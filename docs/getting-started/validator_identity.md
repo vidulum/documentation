@@ -1,4 +1,4 @@
-# Vidulum Mainnet: Running a Full Node
+# Validator Identity
 
 
 This is a detailed documentation for setting up a **Full Node** on Vidulum mainnet.

@@ -25,6 +25,10 @@ module.exports = {
               text: "Testnet",
               link: "/getting-started/testnet.md"
             },
+            {
+              text: "Maintenance",
+              link: "/getting-started/maintenance.md"
+            },
           ]
       },
       {
@@ -57,7 +61,8 @@ module.exports = {
       "/getting-started/": [
         "",
         "mainnet",
-        "testnet"
+        "testnet",
+        "maintenance"
       ],
       "/resources/": [
         "chain-integration",
