@@ -171,6 +171,52 @@ In **_\${HOME}/.vidulum/config/config.toml_** find the **_[p2p]_** section, and 
 seeds = "883ec7d5af7222c206674c20c997ccc5c242b38b@ec2-3-82-120-39.compute-1.amazonaws.com:26656,eed11fff15b1eca8016c6a0194d86e4a60a65f9b@apollo.erialos.me:26656"
 ```
 
+Now find the **[statesync]** section and change the config to match the following highlighted lines:
+
+```bash{13,25-29}
+#######################################################
+###         State Sync Configuration Options        ###
+#######################################################
+[statesync]
+# State sync rapidly bootstraps a new node by discovering, fetching, and restoring a state machine
+# snapshot from peers instead of fetching and replaying historical blocks. Requires some peers in
+# the network to take and serve state machine snapshots. State sync is not attempted if the node
+# has any local state (LastBlockHeight > 0). The node will have a truncated block history,
+# starting from the height of the snapshot.
+enable = true
+
+# RPC servers (comma-separated) for light client verification of the synced state machine and
+# retrieval of state data for node bootstrapping. Also needs a trusted height and corresponding
+# header hash obtained from a trusted source, and a period during which validators can be trusted.
+#
+# For Cosmos SDK-based chains, trust_period should usually be about 2/3 of the unbonding time (~2
+# weeks) during which they can be financially punished (slashed) for misbehavior.
+rpc_servers = "https://apollo.erialos.me:26657,https://mainnet-rpc.vidulum.app:443"
+trust_height = 1483100
+trust_hash = "F9E4CFBC5FA0DB49CF43563244391780CF8BFE5B34CA95B3DEE22774418D315A"
+trust_period = "168h0m0s"
+
+# Time to spend discovering snapshots before initiating a restore.
+discovery_time = "15s"
+
+# Temporary directory for state sync snapshot chunks, defaults to the OS tempdir (typically /tmp).
+# Will create a new, randomly named directory within, and remove it when done.
+temp_dir = "/home/vidulum/.tmp"
+
+# The timeout duration before re-requesting a chunk, possibly from a different
+# peer (default: 1 minute).
+chunk_request_timeout = "10s"
+
+# The number of concurrent chunk fetchers to run (default: 1).
+chunk_fetchers = "4"
+```
+
+::: tip TIP:
+Get a recent block height and header hash by visiting the explorer, take the most recent block height, subtract 350000 from the current height.  Put the answer to the difference in the search bar to get the block header hash. 
+:::
+
+![blockheigh-hash-statesync](~@source/getting-started/assets/blockheight-hash-statesync.png)
+
 Now it is time to download **_genesis.json_** file, which will allow the node to synchronize
 
 ```bash
