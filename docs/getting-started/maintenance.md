@@ -457,14 +457,6 @@ persistent_peers = "VALIDATOR-NODE-ID-1@IP-ADDRESS:26656,SENTRY-NODE-ID-1@IP-ADD
 unconditional_peer_ids = "VALIDATOR-NODE-ID-1,SENTRY-NODE-ID-1,SENTRY-NODE-ID-2,...."
 ...
 ..
-...
-# Maximum number of inbound peers
-max_num_inbound_peers = 37
-
-# Maximum number of outbound peers to connect to, excluding persistent peers
-max_num_outbound_peers = 7
-...
-..
 ..
 ...
 private_peer_ids = "VALIDATOR-NODE-ID-1,VALIDATOR-NODE-ID-2,..."
@@ -472,8 +464,6 @@ private_peer_ids = "VALIDATOR-NODE-ID-1,VALIDATOR-NODE-ID-2,..."
 ```
 
 The goal here is that each Sentry will list your **validator** and all other **sentry's** in the `persistent_peers` and `unconditional_peer_ids` settings.
-
-The number of inbound and outbound peers should be changed to reflect how many nodes you have added as persistent peers.  If you've added 3 nodes, subtract 3 from both inbound and outbound peer limits.  If you do not do that, you will have an additive effect and will allow the number of inbound/outbound peers **plus** your persistent nodes.
 
 Lastly, the `private_peer_ids` setting is to mask your validator from being gossiped.  You only want your validator found via your sentry's.
 
