@@ -148,3 +148,366 @@ catching_up: false
 
 If status if ***false*** it means node is fully synchronized. At that point you should see in explorer that your node start signing blocks again.
 
+## Configuring State Sync post installation
+
+You can use state sync to restore your database in a matter of minutes.
+
+::: tip TIP:
+Before proceeding **backup all configuration files**
+:::
+
+
+### Properly clean your data directory
+
+First, as your admin user, stop the vidulum.service
+
+```
+sudo systemctl stop vidulum
+```
+
+It is best to start from scratch.  The following command will **DELETE YOUR DATABASE** for the blockchain.  Continue if you only know what you are doing.
+Continue as your `vidulum` user.
+
+```bash
+vidulumd unsafe-reset-all
+```
+
+### Enable State Sync
+
+In **_\${HOME}/.vidulum/config/config.toml_** find the **_[p2p]_** section, and change the following to match:
+
+```bash
+seeds = "883ec7d5af7222c206674c20c997ccc5c242b38b@ec2-3-82-120-39.compute-1.amazonaws.com:26656,eed11fff15b1eca8016c6a0194d86e4a60a65f9b@apollo.erialos.me:26656"
+```
+
+::: tip TIP: 
+Do not add the seeds as persistent_peers.  If you have persistent_peers in your list and it is because of prior recommended configuration settings, now is the best time to remove them and to just use the seeds.  Or check out Sentry's and add your Sentry's now!
+:::
+
+Now find the **[statesync]** section and change the config to match the following highlighted lines:
+
+```bash{13,25-29}
+#######################################################
+###         State Sync Configuration Options        ###
+#######################################################
+[statesync]
+# State sync rapidly bootstraps a new node by discovering, fetching, and restoring a state machine
+# snapshot from peers instead of fetching and replaying historical blocks. Requires some peers in
+# the network to take and serve state machine snapshots. State sync is not attempted if the node
+# has any local state (LastBlockHeight > 0). The node will have a truncated block history,
+# starting from the height of the snapshot.
+enable = true
+
+# RPC servers (comma-separated) for light client verification of the synced state machine and
+# retrieval of state data for node bootstrapping. Also needs a trusted height and corresponding
+# header hash obtained from a trusted source, and a period during which validators can be trusted.
+#
+# For Cosmos SDK-based chains, trust_period should usually be about 2/3 of the unbonding time (~2
+# weeks) during which they can be financially punished (slashed) for misbehavior.
+rpc_servers = "https://trpc.rpc.erialos.me:443,https://mainnet-rpc.vidulum.app:443"
+trust_height = 1483100
+trust_hash = "F9E4CFBC5FA0DB49CF43563244391780CF8BFE5B34CA95B3DEE22774418D315A"
+trust_period = "336h0m0s"
+#21 days unbonding - 2/3 time is 14 days or 336 hours.
+
+# Time to spend discovering snapshots before initiating a restore.
+discovery_time = "15s"
+
+# Temporary directory for state sync snapshot chunks, defaults to the OS tempdir (typically /tmp).
+# Will create a new, randomly named directory within, and remove it when done.
+temp_dir = ""
+
+# The timeout duration before re-requesting a chunk, possibly from a different
+# peer (default: 1 minute).
+chunk_request_timeout = "10s"
+
+# The number of concurrent chunk fetchers to run (default: 1).
+chunk_fetchers = "4"
+```
+
+::: tip TIP:
+Don't use the above height! Get a recent block height and header hash by visiting the explorer! Snapshots are taken at 100 block height intervals. 
+:::
+
+Save and restart the daemon.  Watch the journal log output, if everything is working you will see something like this:
+
+```bash
+..
+...
+1PM INF Discovered new snapshot format=1 hash="S.�h�F���\"\x1d6+\x1e���ޅ��`v@�ц�����" height=1810000 module=statesync
+3:01PM INF Discovered new snapshot format=1 hash="g\x1f�;�G�8X��)�{�\x04�F*Fyi�\x02��<_pU\x1c�" height=1809800 module=statesync
+3:01PM INF Discovered new snapshot format=1 hash="Ȥ���R�+�>�\v��\x16\x1258~�\\xᑨ����;\x02L" height=1809600 module=statesync
+3:01PM INF Discovered new snapshot format=1 hash="I\\�\x1d!�k��\x03�\bQ�\x00\x1f�\x01�\x14��,����Y��" height=1809400 module=statesync
+3:01PM INF Discovered new snapshot format=1 hash="�d��\x1e�?�\x13\x03\x10����*�\x04��'�Q���\\�\u007f��L" height=1809200 module=statesync
+3:01PM INF Discovered new snapshot format=1 hash="��z�~�Pc���ϸ��2\x18������ݻPңG��z" height=1809000 module=statesync
+3:01PM INF Discovered new snapshot format=1 hash="Ĝ+���W���!\x0e�\x1b_����gu��x%��Ew�" height=1808800 module=statesync
+3:01PM INF Discovered new snapshot format=1 hash="��/\x0e\v\x16�7E�\x1c�\x1a%��\n��\tɮ��%z\x105祅l" height=1808600 module=statesync
+3:01PM INF Discovered new snapshot format=1 hash="\x1e��\x16�Z�R�\x1f��kq\x1e\t`�\v��37�\r�\x15��q" height=1808400 module=statesync
+3:01PM INF Discovered new snapshot format=1 hash="��\x10�V�Z�Z{8~k�sx�)/\"T�\u007f+��\t���\x06^" height=1808300 module=statesync
+3:01PM INF Discovered new snapshot format=1 hash="n4�ʹ/��xژI*�L�\x1bf�ҝ1#\x10�>c\x05A{\x11c" height=1807500 module=statesync
+...
+..
+```
+
+Shortly after finding the best peers and repopulating the address book, you will begin to download the blockchain at a lightening speed compared to full sync!
+Remember, this puts your database at a truncated state.  You will only be able to query information from the machine you apply these settings to, only at the block height that you initiated state sync at.
+
+### Troubleshooting
+
+Q: It continues to look for snapshots and doesn't ever provide me one
+A: Check your seeds/peers. After reseting the the data dir and addressbook, you must redownload it.  If you fail to do so, it will not start state sync.
+
+Q: Validator set is Nil??
+A: See above.
+
+Q: It's still not working and my seeds/peers are correct.
+A: Try another `unsafe-reset-all` and restart.  If that does not work, change `pruning = nothing` in `app.toml` and restart the service.  State Sync will sometimes complain if you try to prune everything when it's first applying a state sync snapshot.
+
+If you are still running into issues, come to the discord and share your log errors in the #Validator-operators channel.  It is possible for a snapshot to be stuck in creation that would prevent delivery of snapshots for statesync.
+
+## Database Pruning
+
+Doing less than the recommended settings here is not recommended nor supported!
+
+Pruning your database to acheive the best minimal result will require that you first **delete** what you have and then use **state sync** to catch back up.
+These are advanced instructions, continue only if you know what you are doing.
+
+Lets also get an idea of how much disk space this has saved us.  It's important to keep track of these metrics so you can understand how well your node is performing!
+```bash
+df -h
+du -h -d 1 /home/vidulum/.vidulum/data
+```
+
+::: tip TIP:
+Before proceeding **backup all configuration files**
+:::
+
+
+### Prepare to prune your database
+
+Backup your blockchain data before continuing in the event the unexpected happens.
+The following command will **DELETE YOUR DATABASE** for the blockchain.  Continue if you only know what you are doing.
+
+As your `vidulum` user:
+```bash
+vidulum unsafe-reset-all
+```
+
+### Edit app.toml
+
+Edit `app.toml` and change the `pruning` and `min-retain-blocks` settings.
+
+```bash
+nano /home/vidulum/.vidulum/config/app.toml
+```
+
+This will be the first section in app.toml, and it will contain what we need to edit:
+
+```bash{16,54}
+# This is a TOML config file.
+# For more information, see https://github.com/toml-lang/toml
+
+###############################################################################
+###                           Base Configuration                            ###
+###############################################################################
+
+# The minimum gas prices a validator is willing to accept for processing a
+# transaction. A transaction's fees must meet the minimum of any denomination
+# specified in this config (e.g. 0.25token1;0.0001token2).
+minimum-gas-prices = "0stake"
+
+# default: the last 100 states are kept in addition to every 500th state; pruning at 10 block intervals
+# nothing: all historic states will be saved, nothing will be deleted (i.e. archiving node)
+# everything: all saved states will be deleted, storing only the current state; pruning at 10 block intervals
+# custom: allow pruning options to be manually specified through 'pruning-keep-recent', 'pruning-keep-every', and 'pruning-interval'
+pruning = "everything"
+
+# These are applied if and only if the pruning strategy is custom.
+pruning-keep-recent = "0"
+pruning-keep-every = "0"
+pruning-interval = "0"
+
+# HaltHeight contains a non-zero block height at which a node will gracefully
+# halt and shutdown that can be used to assist upgrades and testing.
+#
+# Note: Commitment of state will be attempted on the corresponding block.
+halt-height = 0
+
+# HaltTime contains a non-zero minimum block time (in Unix seconds) at which
+# a node will gracefully halt and shutdown that can be used to assist upgrades
+# and testing.
+#
+# Note: Commitment of state will be attempted on the corresponding block.
+halt-time = 0
+
+# MinRetainBlocks defines the minimum block height offset from the current
+# block being committed, such that all blocks past this offset are pruned
+# from Tendermint. It is used as part of the process of determining the
+# ResponseCommit.RetainHeight value during ABCI Commit. A value of 0 indicates
+# that no blocks should be pruned.
+#
+# This configuration value is only responsible for pruning Tendermint blocks.
+# It has no bearing on application state pruning which is determined by the
+# "pruning-*" configurations.
+#
+# Note: Tendermint block pruning is dependant on this parameter in conunction
+# with the unbonding (safety threshold) period, state pruning and state sync
+# snapshot parameters to determine the correct minimum value of
+# ResponseCommit.RetainHeight.
+min-retain-blocks = 210000
+# ~6 Second block time -> 14400 blocks/day -> 14 days is 2/3 unbonding time
+# 14*14400 = 201600 ~~ 210000 blocks should be kept!
+...
+..
+```
+
+### Configure State Sync if you haven't yet
+
+[Configure State Sync](./maintenance.md#configuring-state-sync-post-installation)
+
+::: tip TIP:
+Use the explorer and choose a block height & hash within the closest 100'th of the current block. IE: 1829500
+:::
+
+### Deploy your changes
+
+Take this time to make any other updates during your **planed maintenance time**. After making all nessessary changes to your configuration files, save and restart the daemon.
+
+```bash
+systemctl start vidulum && journalctl -u vidulum.service -f
+```
+
+Watch your logs, ensure you are working properly again.
+
+Check out how much space you have save from when we started!
+
+```bash
+df -h
+du -h -d 1 /home/vidulum/.vidulum/data
+```
+
+## Setting up Sentry's to protect your validator/node
+
+Sentry's are a sort of `firewall` for your validator.  There are many ways that you can setup Sentry's to hide your validator behind them.  In this example, we will just cover the most basic way.
+
+Recommended read before proceeding:  [Sentry Node Architecture Overview](https://forum.cosmos.network/t/sentry-node-architecture-overview/454)
+
+### Requirements
+
+Minimum requirements:
+- 1 CPU
+- 1 GB Ram
+- 25GB SSD/NVME Storage Space
+
+::: tip TIP:
+Before proceeding **backup all configuration files**
+:::
+
+### Setup your Sentry
+
+::: tip TIP:
+The minimum recommended number of sentry's to use per validator is 3.  Having less may actually **hurt** your validators up time.
+:::
+
+### Install Vidulum
+
+Like all vidulum nodes, you can follow the instructions already provided to get started!
+[Mainnet Full node Installation Instructions](mainnet.md#section-0-requirements)
+
+Once you are finished with `SECTION 2` for `MAINNET` installation, make these extra configuration changes.
+
+### Configure Pruning & State Sync
+
+Follow the instructions to configure your Sentry for [Pruning](./maintenance.md#database-pruning) and [State Sync](./maintenance.md#configuring-state-sync-post-installation).
+
+### Start State Sync
+
+Now start your vidulum daemon, watch the logs, and allow your new sentry to first catch up and download the blockchain.  Once it has caught up, proceed with the next steps.
+
+Stop your daemon:
+```bash
+systemctl stop vidulum
+```
+
+### Sentry Configuration
+
+Go to your **validator**, you will need your node ID.
+
+::: tip TIP:
+Store all node ID information in a text file for easier retrieval later!
+:::
+
+```bash
+vidulumd tendermint show-node-id
+```
+
+Now on your **Sentry**, edit the `config.toml` file.
+
+The configuration options we need to change/add to are:
+
+`persistent_peers` and `unconditional_peer_ids`
+
+Using your node ID, you will need to configure them as such:
+
+```bash
+persistent_peers = "VALIDATOR-NODE-ID-1@IP-ADDRESS:26656,SENTRY-NODE-ID-1@IP-ADDRESS:26656,SENTRY-NODE-ID-2@IP-ADDRESS:26656,..."
+...
+..
+...
+unconditional_peer_ids = "VALIDATOR-NODE-ID-1,SENTRY-NODE-ID-1,SENTRY-NODE-ID-2,...."
+...
+..
+..
+...
+private_peer_ids = "VALIDATOR-NODE-ID-1,VALIDATOR-NODE-ID-2,..."
+
+```
+
+The goal here is that each Sentry will list your **validator** and all other **sentry's** in the `persistent_peers` and `unconditional_peer_ids` settings.
+
+Lastly, the `private_peer_ids` setting is to mask your validator from being gossiped.  You only want your validator found via your sentry's.
+
+Once you have added all your Sentry and Validator node ID's to all the proper configurations, restart your Sentry's.  You want them up, caught up, and running before continuing to the next steps.
+
+### Validator Configuration
+
+Your validator will now need to be updated to use all of your currently running Sentry's.
+The same idea here applies as the above configuration.  You need to add all your sentry's to the `config.toml` and change the number of allowed connected peers to zero.
+
+```bash
+seeds = ""
+...
+..
+...
+persistent_peers = "SENTRY-NODE-ID-1@IP-ADDRESS:26656,SENTRY-NODE-ID-2@IP-ADDRESS:26656,..."
+...
+..
+...
+unconditional_peer_ids = "SENTRY-NODE-ID-1,SENTRY-NODE-ID-2,...."
+...
+..
+...
+# Maximum number of inbound peers
+max_num_inbound_peers = 0
+
+# Maximum number of outbound peers to connect to, excluding persistent peers
+max_num_outbound_peers = 0
+...
+..
+...
+pex = false
+```
+
+These changes will force your validator to only connect to the `persistent_peers` that you've listed.  You no longer want to use the seeds as you cannot control their `private_peer_ids` settings.  Disabling `pex` will prevent you from telling others about yourself, and make your sentry's do that for you.
+
+### Deploy your changes
+
+It's now time to deploy your changes!
+
+- Make sure all your Sentry's are live, running, and are all caught up!
+- Make sure each Sentry has been configured properly to connect to your validator (check node ID and ip addresses!)
+- Restart your validator and watch the logs!
+
+```bash
+systemctl restart vidulum && journalctl -u vidulum -f
+```
