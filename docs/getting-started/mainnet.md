@@ -270,7 +270,8 @@ All tasks in **SECTION 3** have to be performed as the **vidulum** user created 
 **ONLY** continue this section if you have plans to impliment a validator node. 
 :::
 
-In order to create a validator, you must have a Vidulum wallet and at least 1 VDL that you must self delegate as the validator.
+In order to create a validator, you must have a Vidulum wallet and at least 2 VDL that you must self delegate as the validator.
+
 
 ### Create Wallet
 
