@@ -290,7 +290,7 @@ The following command will **DELETE YOUR DATABASE** for the blockchain.  Continu
 
 As your `vidulum` user:
 ```bash
-vidulum unsafe-reset-all
+vidulumd unsafe-reset-all
 ```
 
 ### Edit app.toml
