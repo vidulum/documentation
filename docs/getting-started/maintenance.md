@@ -161,12 +161,17 @@ Before proceeding **backup all configuration files**
 
 First, as your admin user, stop the vidulum.service
 
-```
+```bash
 sudo systemctl stop vidulum
 ```
 
-It is best to start from scratch.  The following command will **DELETE YOUR DATABASE** for the blockchain.  Continue if you only know what you are doing.
+It is best to start from scratch.
 Continue as your `vidulum` user.
+
+::: warning WARNING: 
+This will erase your nodes database. Be sure you backed up your `config/priv_validator_key.json` and `config/node_key.json` prior to running unsafe-reset-all.
+It is recommended to copy `data/priv_validator_state.json` to a backup and restore it after unsafe-reset-all to avoid potential double signing..
+:::
 
 ```bash
 vidulumd unsafe-reset-all
@@ -286,7 +291,11 @@ Before proceeding **backup all configuration files**
 ### Prepare to prune your database
 
 Backup your blockchain data before continuing in the event the unexpected happens.
-The following command will **DELETE YOUR DATABASE** for the blockchain.  Continue if you only know what you are doing.
+
+::: warning WARNING: 
+This will erase your nodes database. Be sure you backed up your `config/priv_validator_key.json` and `config/node_key.json` prior to running unsafe-reset-all.
+It is recommended to copy `data/priv_validator_state.json` to a backup and restore it after unsafe-reset-all to avoid potential double signing..
+:::
 
 As your `vidulum` user:
 ```bash
