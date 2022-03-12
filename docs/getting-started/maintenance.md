@@ -231,7 +231,7 @@ chunk_fetchers = "4"
 ```
 
 ::: tip TIP:
-Don't use the above height! Get a recent block height and header hash by visiting the explorer! Snapshots are taken at 100 block height intervals. 
+Don't use the above height! Get a recent block height and header hash by visiting the explorer! Snapshots are taken at 3000 block height intervals. 
 :::
 
 Save and restart the daemon.  Watch the journal log output, if everything is working you will see something like this:
@@ -375,7 +375,7 @@ min-retain-blocks = 210000
 [Configure State Sync](./maintenance.md#configuring-state-sync-post-installation)
 
 ::: tip TIP:
-Use the explorer and choose a block height & hash within the closest 100'th of the current block. IE: 1829500
+Use the explorer and choose a block height & hash within the closest 3000'th of the current block. IE: 1823000
 :::
 
 ### Deploy your changes
