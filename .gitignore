@@ -8,3 +8,8 @@ docs/.vuepress/dist/
 .idea
 
 ci/env
+deploy.sh
+*.bak
+deploy.sh
+package-lock.json
+package.json
