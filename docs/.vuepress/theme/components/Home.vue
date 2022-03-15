@@ -34,7 +34,7 @@
             <div>
               <h3>Developers</h3>
               <p>Check how to become part of Vidulum chain and project</p>
-              <a href="/getting-started">
+              <a href="/docs/getting-started">
                 Get involved
                 <img
                   class="action-arrow"
