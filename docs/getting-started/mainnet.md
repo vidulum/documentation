@@ -2,21 +2,23 @@
 
 <!-- MarkdownTOC autolink="true" -->
 
-- [SECTION 0: Requirements](#section-0-requirements)
-- [SECTION 1: System preparation](#section-1-system-preparation)
-  - [Add dedicated user](#add-dedicated-user)
-  - [Go deployment](#go-deployment)
-    - [Download and extract repository](#download-and-extract-repository)
-  - [Firewall Configuration](#firewall-configuration)
-  - [systemd Service Configuration](#systemd-service-configuration)
-- [SECTION 2: Build and Initiate Vidulum Node](#section-2-build-and-initiate-vidulum-node)
-  - [Add Go environmental variables](#add-go-environmental-variables)
-  - [Build Vidulum binaries](#build-vidulum-binaries)
-  - [Vidulum Node Init](#vidulum-node-init)
-  - [Start node](#start-node)
-- [SECTION 3: Promote Full Node to Validator Role](#section-3-promote-full-node-to-validator-role)
-  - [Create Wallet](#create-wallet)
-  - [Create Validator](#create-validator)
+- [Mainnet Full Node & Validator](#mainnet-full-node--validator)
+  - [SECTION 0: Requirements](#section-0-requirements)
+  - [SECTION 1: System preparation](#section-1-system-preparation)
+    - [Add dedicated user](#add-dedicated-user)
+    - [Install prerequisites](#install-prerequisites)
+    - [Go deployment](#go-deployment)
+      - [Download and extract repository](#download-and-extract-repository)
+    - [Firewall Configuration](#firewall-configuration)
+    - [systemd Service Configuration](#systemd-service-configuration)
+  - [SECTION 2: Build and Initiate Vidulum Node](#section-2-build-and-initiate-vidulum-node)
+    - [Add Go environmental variables](#add-go-environmental-variables)
+    - [Build Vidulum binaries](#build-vidulum-binaries)
+    - [Vidulum Node Init](#vidulum-node-init)
+    - [Start node](#start-node)
+  - [SECTION 3: Promote Full Node to Validator Role](#section-3-promote-full-node-to-validator-role)
+    - [Create Wallet](#create-wallet)
+    - [Create Validator](#create-validator)
 
 <!-- /MarkdownTOC -->
 
@@ -115,6 +117,10 @@ systemctl daemon-reload && systemctl enable vidulum.service
 ::: warning NOTE:
 All tasks in **SECTION 2** must be performed as the **vidulum** user created in **SECTION 1**
 :::
+
+```bash
+su - vidulum
+```
 
 ### Add Go environmental variables
 
@@ -222,6 +228,9 @@ You will see JSON output where you need to locate **_catching_up_** field. When 
 All tasks in **SECTION 3** have to be performed as the **vidulum** user created in **SECTION 1**.<br>
 **ONLY** continue this section if you have plans to impliment a validator node. 
 :::
+```bash
+su - vidulum
+```
 
 In order to create a validator, you must have a Vidulum wallet and at least 2 VDL that you must self delegate as the validator.
 
