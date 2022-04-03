@@ -312,7 +312,7 @@ nano /home/vidulum/.vidulum/config/app.toml
 
 This will be the first section in app.toml, and it will contain what we need to edit:
 
-```bash{18,54}
+```bash{20,54}
 # This is a TOML config file.
 # For more information, see https://github.com/toml-lang/toml
 
