@@ -363,9 +363,8 @@ halt-time = 0
 # with the unbonding (safety threshold) period, state pruning and state sync
 # snapshot parameters to determine the correct minimum value of
 # ResponseCommit.RetainHeight.
-min-retain-blocks = 210000
-# ~6 Second block time -> 14400 blocks/day -> 14 days is 2/3 unbonding time
-# 14*14400 = 201600 ~~ 210000 blocks should be kept!
+min-retain-blocks = 375000
+
 ...
 ..
 ```
