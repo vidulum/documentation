@@ -2,21 +2,23 @@
 
 <!-- MarkdownTOC autolink="true" -->
 
-- [SECTION 0: Requirements](#section-0-requirements)
-- [SECTION 1: System preparation](#section-1-system-preparation)
-  - [Add dedicated user](#add-dedicated-user)
-  - [Go deployment](#go-deployment)
-    - [Download and extract repository](#download-and-extract-repository)
-  - [Firewall Configuration](#firewall-configuration)
-  - [systemd Service Configuration](#systemd-service-configuration)
-- [SECTION 2: Build and Initiate Vidulum Node](#section-2-build-and-initiate-vidulum-node)
-  - [Add Go environmental variables](#add-go-environmental-variables)
-  - [Build Vidulum binaries](#build-vidulum-binaries)
-  - [Vidulum Node Init](#vidulum-node-init)
-  - [Start node](#start-node)
-- [SECTION 3: Promote Full Node to Validator Role](#section-3-promote-full-node-to-validator-role)
-  - [Create Wallet](#create-wallet)
-  - [Create Validator](#create-validator)
+- [Mainnet Full Node \& Validator](#mainnet-full-node--validator)
+  - [SECTION 0: Requirements](#section-0-requirements)
+  - [SECTION 1: System preparation](#section-1-system-preparation)
+    - [Add dedicated user](#add-dedicated-user)
+    - [Install prerequisites](#install-prerequisites)
+    - [Go deployment](#go-deployment)
+      - [Download and extract repository](#download-and-extract-repository)
+    - [Firewall Configuration](#firewall-configuration)
+    - [systemd Service Configuration](#systemd-service-configuration)
+  - [SECTION 2: Build and Initiate Vidulum Node](#section-2-build-and-initiate-vidulum-node)
+    - [Add Go environmental variables](#add-go-environmental-variables)
+    - [Build Vidulum binaries](#build-vidulum-binaries)
+    - [Vidulum Node Init](#vidulum-node-init)
+    - [Start node](#start-node)
+  - [SECTION 3: Promote Full Node to Validator Role](#section-3-promote-full-node-to-validator-role)
+    - [Create Wallet](#create-wallet)
+    - [Create Validator](#create-validator)
 
 <!-- /MarkdownTOC -->
 
@@ -168,7 +170,7 @@ Replace NODE_NAME with the name you want to assign to your validator.
 In **_\${HOME}/.vidulum/config/config.toml_** find the **_[p2p]_** section, and change the following to match:
 
 ```bash
-seeds = "883ec7d5af7222c206674c20c997ccc5c242b38b@ec2-3-82-120-39.compute-1.amazonaws.com:26656,eed11fff15b1eca8016c6a0194d86e4a60a65f9b@apollo.erialos.me:26656"
+seeds = "1f0bcfce2def9553c2a2f64342927a495ac27a38@mainnet-seed.vidulum.app:443,20e1000e88125698264454a884812746c2eb4807@seeds.lavenderfive.com:17056"
 ```
 
 Now it is time to download **_genesis.json_** file, which will allow the node to synchronize

@@ -182,7 +182,7 @@ vidulumd unsafe-reset-all
 In **_\${HOME}/.vidulum/config/config.toml_** find the **_[p2p]_** section, and change the following to match:
 
 ```bash
-seeds = "883ec7d5af7222c206674c20c997ccc5c242b38b@ec2-3-82-120-39.compute-1.amazonaws.com:26656,eed11fff15b1eca8016c6a0194d86e4a60a65f9b@apollo.erialos.me:26656"
+seeds = "1f0bcfce2def9553c2a2f64342927a495ac27a38@mainnet-seed.vidulum.app:443,20e1000e88125698264454a884812746c2eb4807@seeds.lavenderfive.com:17056"
 ```
 
 ::: tip TIP: 
@@ -209,7 +209,7 @@ enable = true
 #
 # For Cosmos SDK-based chains, trust_period should usually be about 2/3 of the unbonding time (~2
 # weeks) during which they can be financially punished (slashed) for misbehavior.
-rpc_servers = "https://trpc.rpc.erialos.me:443,https://mainnet-rpc.vidulum.app:443"
+rpc_servers = "https://mainnet-rpc.vidulum.app:443,https://mainnet-rpc.vidulum.app:443"
 trust_height = 1483100
 trust_hash = "F9E4CFBC5FA0DB49CF43563244391780CF8BFE5B34CA95B3DEE22774418D315A"
 trust_period = "336h0m0s"
